@@ -6,21 +6,21 @@ settings:
 
 dependencies:
   vue:
-    specifier: ^3.3.11
+    specifier: ^3.4.15
     version: 3.4.15(typescript@5.3.3)
 
 devDependencies:
   '@vitejs/plugin-vue':
-    specifier: ^4.5.2
+    specifier: ^4.6.2
     version: 4.6.2(vite@5.0.12)(vue@3.4.15)
   typescript:
-    specifier: ^5.2.2
+    specifier: ^5.3.3
     version: 5.3.3
   vite:
-    specifier: ^5.0.8
+    specifier: ^5.0.12
     version: 5.0.12
   vue-tsc:
-    specifier: ^1.8.25
+    specifier: ^1.8.27
     version: 1.8.27(typescript@5.3.3)
 
 packages:
