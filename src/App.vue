@@ -2,14 +2,7 @@
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo">
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
-    </a>
-  </div>
+  <div class="w-50 h-50 bg-red-500 shadow-2xl shadow-gray-500">admin</div>
 </template>
 
 <style scoped>
