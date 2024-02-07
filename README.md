@@ -11,3 +11,14 @@
 7. [unplugin-auto-import - API 自动导入](https://www.npmjs.com/package/unplugin-auto-import)
 8. [unplugin-vue-components - 组件自动导入](https://www.npmjs.com/package/unplugin-vue-components)
 9. [@types/node - node 模块类型说明](https://www.npmjs.com/package/@types/node)
+10. [vite-plugin-eslint - eslint 插件](https://www.npmjs.com/package/vite-plugin-eslint)
+11. [vite - 打包插件](https://vitejs.cn/vite3-cn/)
+
+## 生成文件目录树
+
+```js
+    // -i 要忽略的文件夹
+    // -e 生成文件目录树的文件指定
+    // 控制台执行以下命令
+    treer -i '/node_modules|.git|.idea|.vscode/' -e tree.md
+```
