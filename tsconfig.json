@@ -20,7 +20,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global"],
+    // 解决 找不到模块“@/store/userStore”或其相应的类型声明。ts(2307)
+    "baseUrl": "./",  // 解析非相对模块的基础地址，默认是当前目录
+    "paths": {
+      "@/*": ["./src/*"],  // 路径映射，相对于baseUrl
+      "~/*": ["./*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

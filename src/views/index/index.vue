@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useUserStore from '../../store/userStore'
+import useUserStore from '@/store/userStore'
 const router = useRouter()
 const store = useUserStore()
 console.log(store.userList)
@@ -13,5 +13,5 @@ const gotoHome = ()=> {
   <div @click="gotoHome">
     主页
   </div>
-  <test-zu />
+  <about />
 </template>
