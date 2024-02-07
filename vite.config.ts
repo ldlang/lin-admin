@@ -12,5 +12,12 @@ export default defineConfig({
     }),
     // WindiCSS插件
     WindiCSS()
-  ]
+  ],
+  // 别名配置
+  resolve: {
+    // 配置路径别名
+    alias: {
+      '@': '/src'
+    }
+  }
 })
