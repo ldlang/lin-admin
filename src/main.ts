@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 // vue-router插件
-import router from '../router'
+import router from './router'
 // pinia插件
-import pinia from '../store'
+import pinia from './store'
 // windicss插件
 import 'virtual:windi.css'
 // 引入normalize样式库

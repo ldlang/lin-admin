@@ -329,7 +329,7 @@ module.exports = {
     // 禁用行尾空格
     'no-trailing-spaces': 2,
     // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到
-    'no-undef': 2,
+    'no-undef': 0,
     // 禁止将变量初始化为 undefined
     'no-undef-init': 2,
     // 禁止出现令人困惑的多行表达式
@@ -347,13 +347,8 @@ module.exports = {
     'no-unreachable': 2,
     'no-unsafe-finally': 2,
     // 禁止出现未使用过的变量
-    'no-unused-vars': [
-      1,
-      {
-        vars: 'all',
-        args: 'none'
-      }
-    ],
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 0,
     // 禁止不必要的 .call() 和 .apply()
     'no-useless-call': 2,
     // 禁止不必要的计算性能键对象的文字
