@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// vue-router插件
 import router from '../router'
+// pinia插件
+import pinia from '../store'
 // windicss插件
 import 'virtual:windi.css'
 // 引入normalize样式库
@@ -14,6 +17,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App)
 // vue-router插件
 app.use(router)
+// pinia插件
+app.use(pinia)
 // element-plus插件
 app.use(ElementPlus)
 // element-plus图标

@@ -7,3 +7,4 @@
 3. [element-plus](https://element-plus.org/zh-CN/)
 4. [axios](https://axios-http.com/zh/)
 5. [vue-router](https://router.vuejs.org/zh/)
+6. [pinia](https://pinia.vuejs.org/zh/)
