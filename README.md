@@ -13,6 +13,7 @@
 9. [@types/node - node 模块类型说明](https://www.npmjs.com/package/@types/node)
 10. [vite-plugin-eslint - eslint 插件](https://www.npmjs.com/package/vite-plugin-eslint)
 11. [vite - 打包插件](https://vitejs.cn/vite3-cn/)
+12. [pinia-plugin-persistedstate - 状态持久化](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)
 
 ## 生成文件目录树
 
