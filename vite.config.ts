@@ -31,6 +31,15 @@ export default defineConfig({
       dts: 'src/declare-auto/components.d.ts'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      // scss配置
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/common-style/index.scss";'
+      }
+    }
+  },
   // 别名配置
   resolve: {
     alias: {

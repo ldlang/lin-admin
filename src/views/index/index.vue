@@ -10,8 +10,16 @@ const gotoHome = ()=> {
 </script>
 
 <template>
-  <div @click="gotoHome">
+  <div @click="gotoHome" class="home">
     主页
   </div>
   <about />
 </template>
+
+<style lang="scss" scoped>
+  .home {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+  }
+</style>
