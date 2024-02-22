@@ -3,6 +3,9 @@
 import type { ILoginFrom } from '@/api'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
+import useUserStore from '@/store/userStore'
+const store = useUserStore()
+const router = useRouter()
 
 // 密码是否可见
 const isHide = ref(true)
@@ -22,7 +25,9 @@ const loginFormRef = ref<FormInstance>()
 const onSubmitLoginClick = async()=> {
   await loginFormRef.value?.validate((valid)=> {
     if (valid) {
-      console.log('submit!')
+      store.token = '123456'
+      router.replace('/')
+      ElMessage.success('登录成功！')
     } else {
       ElMessage({
         message: '验证未通过！',
@@ -37,10 +42,10 @@ const onSubmitLoginClick = async()=> {
 
 <template>
   <div class="login flex justify-center items-center">
-    <el-card shadow="always" class="w-35vw h-35vh">
+    <el-card shadow="always" class="w-100 h-60">
       <template #header>
         <h3 class="text-center">
-          lindalang - 后台
+          lindalang - blog后台
         </h3>
       </template>
       <el-form
@@ -49,7 +54,7 @@ const onSubmitLoginClick = async()=> {
         :rules="rules"
         label-width="60px">
         <el-form-item label="账号" prop="username">
-          <el-input v-model="loginForm.username" />
+          <el-input class="rounded-none" v-model="loginForm.username" />
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input :type="isHide ? 'password' : 'text'" v-model="loginForm.password">

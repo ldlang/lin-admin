@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 export const routes: Array<RouteRecordRaw> = [
   {
-    path: '/index',
+    path: '/',
     name: 'index',
     component: ()=> import('@/views/index/index.vue')
   },
@@ -12,7 +12,7 @@ export const routes: Array<RouteRecordRaw> = [
     component: ()=> import('@/views/home/home.vue')
   },
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: ()=> import('@/views/login/login.vue')
   }

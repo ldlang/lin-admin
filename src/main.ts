@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 // vue-router插件
 import router from './router'
+// vue-router权限插件
+import './router/permission'
 // pinia插件
 import pinia from './store'
 // windicss插件
