@@ -11,12 +11,12 @@ const router = useRouter()
 const isHide = ref(true)
 
 const loginForm = reactive<ILoginFrom>({
-  username: '',
+  account: '',
   password: ''
 })
 
 const rules = reactive<FormRules<ILoginFrom>>({
-  username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+  account: [{ required: true, message: '请输入账号', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 })
 
@@ -53,8 +53,8 @@ const onSubmitLoginClick = async()=> {
         :model="loginForm"
         :rules="rules"
         label-width="60px">
-        <el-form-item label="账号" prop="username">
-          <el-input class="rounded-none" v-model="loginForm.username" />
+        <el-form-item label="账号" prop="account">
+          <el-input class="rounded-none" v-model="loginForm.account" />
         </el-form-item>
         <el-form-item label="密码" prop="password">
           <el-input :type="isHide ? 'password' : 'text'" v-model="loginForm.password">
