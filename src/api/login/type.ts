@@ -3,6 +3,10 @@ export interface ILoginFrom {
   password: string;
 }
 
+export interface ILoginResult {
+  token: string;
+}
+
 interface ILogin {
   id: number;
   code: string;

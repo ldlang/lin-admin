@@ -1,8 +1,11 @@
 <script setup lang="ts">
 // todo 必填字段未填时，失去焦点控制台会报警告
-import type { ILoginFrom } from '@/api'
+import type { ILoginFrom, ILoginResult } from '@/api'
+import { loginApi } from '@/api'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
+import { cloneDeep } from 'lodash'
+import { Encrypt } from '@/utils'
 import useUserStore from '@/store/userStore'
 const store = useUserStore()
 const router = useRouter()
@@ -11,7 +14,7 @@ const router = useRouter()
 const isHide = ref(true)
 
 const loginForm = reactive<ILoginFrom>({
-  account: '',
+  account: 'super',
   password: ''
 })
 
@@ -23,21 +26,23 @@ const rules = reactive<FormRules<ILoginFrom>>({
 // 登录按钮
 const loginFormRef = ref<FormInstance>()
 const onSubmitLoginClick = async()=> {
-  await loginFormRef.value?.validate((valid)=> {
+  await loginFormRef.value?.validate(async valid=> {
     if (valid) {
-      store.token = '123456'
-      router.replace('/')
-      ElMessage.success('登录成功！')
+      try {
+        const loginFormParams = cloneDeep(loginForm)
+        loginFormParams.password = Encrypt(loginForm.password)
+        const res = await loginApi(loginFormParams)
+        store.token = res?.data?.token
+        ElMessage.success('登录成功！')
+        router.replace('/')
+      } catch (error: any) {
+        console.error(error)
+      }
     } else {
-      ElMessage({
-        message: '验证未通过！',
-        grouping: true,
-        type: 'error'
-      })
+      ElMessage.error({ message: '验证未通过！' })
     }
   })
 }
-
 </script>
 
 <template>
