@@ -15,7 +15,7 @@ const isHide = ref(true)
 
 const loginForm = reactive<ILoginFrom>({
   account: 'super',
-  password: ''
+  password: 'super'
 })
 
 const rules = reactive<FormRules<ILoginFrom>>({
