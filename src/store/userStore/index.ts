@@ -1,13 +1,16 @@
 import { defineStore } from 'pinia'
+import type { IUserInfo } from '@/api'
 
-interface State {
+interface IUserState {
   token: string
+  userInfo: IUserInfo
 }
 
 const userStore = defineStore('userStore', {
-  state: (): State=> {
+  state: (): IUserState=> {
     return {
-      token: ''
+      token: '',
+      userInfo: {} as IUserInfo
     }
   }
 })

@@ -7,7 +7,7 @@ import topBar from './components/top-bar.vue'
 <template>
   <div>
     <el-container>
-      <el-aside class="left-aside">
+      <el-aside class="h-screen">
         <aside-menu />
       </el-aside>
       <el-container>
@@ -33,7 +33,6 @@ import topBar from './components/top-bar.vue'
 <style lang="scss" scoped>
 .left-aside {
   width: $menu-width;
-  @apply h-screen;
 }
 
 .el-header {

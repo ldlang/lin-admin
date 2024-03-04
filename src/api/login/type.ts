@@ -7,7 +7,7 @@ export interface ILoginResult {
   token: string;
 }
 
-interface ILogin {
+export interface IUserInfo {
   id: number;
   code: string;
   account: string;
