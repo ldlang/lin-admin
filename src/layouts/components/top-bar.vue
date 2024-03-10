@@ -25,10 +25,10 @@ const onUserCommand = (command: string)=> {
 </script>
 
 <template>
-  <div class="flex flex-justify-between w-full h-full px-5 py-1.25 top-bar">
+  <div class="flex flex-justify-between w-full h-full py-5 top-bar">
     <div>左</div>
     <div class="flex items-center">
-      <div class="text-[20px] pr-5">
+      <div class="text-20 pr-20">
         <el-tooltip content="全屏" placement="bottom">
           <el-icon @click="onFullScreenClick" class="cursor-pointer">
             <FullScreen />
@@ -36,7 +36,7 @@ const onUserCommand = (command: string)=> {
         </el-tooltip>
       </div>
 
-      <div>
+      <div class="pr-20">
         <el-dropdown @command="onUserCommand">
           <template #default>
             <div class="flex flex-justify-center items-center cursor-pointer">
