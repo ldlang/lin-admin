@@ -6,8 +6,8 @@ import router from './router'
 import './router/permission'
 // pinia插件
 import pinia from './store'
-// windicss插件
-import 'virtual:windi.css'
+// unocss插件
+import 'virtual:uno.css'
 // 引入normalize样式库
 import 'normalize.css/normalize.css'
 // element-plus插件

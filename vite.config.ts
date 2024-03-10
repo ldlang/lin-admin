@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint' // 引入vite配合eslint的包
-import WindiCSS from 'vite-plugin-windicss'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite' // 引入vite自动导入api
 import Components from 'unplugin-vue-components/vite' // 引入vite自动导入组件的包
 import { resolve } from 'path'
@@ -13,8 +13,8 @@ export default defineConfig({
     eslintPlugin({
       include: ['src/**/*.ts', 'src/**/*.vue', 'src/*.ts', 'src/*.vue']
     }),
-    // WindiCSS插件
-    WindiCSS(),
+    // UnoCSS插件
+    UnoCSS(),
     // api自动导入
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],

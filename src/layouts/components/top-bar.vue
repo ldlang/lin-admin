@@ -25,7 +25,7 @@ const onUserCommand = (command: string)=> {
 </script>
 
 <template>
-  <div class="flex justify-between w-full h-full px-5 py-1.25 top-bar">
+  <div class="flex flex-justify-between w-full h-full px-5 py-1.25 top-bar">
     <div>左</div>
     <div class="flex items-center">
       <div class="text-[20px] pr-5">
@@ -39,7 +39,7 @@ const onUserCommand = (command: string)=> {
       <div>
         <el-dropdown @command="onUserCommand">
           <template #default>
-            <div class="flex justify-center items-center cursor-pointer">
+            <div class="flex flex-justify-center items-center cursor-pointer">
               <el-avatar shape="circle" :src="userInfo.avatar" size="small" />
               <span class="ml-1">{{ userInfo.name }}</span>
               <el-icon class="el-icon--right"><arrow-down /></el-icon>
