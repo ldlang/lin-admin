@@ -4,10 +4,10 @@ import type { IUserInfo, IMenuList } from '@/api'
 const menuList:IMenuList = [
   {
     label: 'crud模板',
-    path: '/home',
-    component: 'views/home',
+    path: '/crud',
+    component: 'views/crud',
     icon: 'House',
-    iconBgColor: '#CB56F2',
+    iconColor: '#CB56F2',
     meta: {
       keepAlive: false,
       tag: false,
@@ -20,14 +20,14 @@ const menuList:IMenuList = [
     path: '/error',
     icon: 'Avatar',
     meta: {},
-    'iconBgColor': '#164C4B',
+    'iconColor': '#164C4B',
     'children': [
       {
         'label': 'error403',
         'path': '403',
         'component': 'views/common/403',
         'icon': 'House',
-        'iconBgColor': '#C0BD21',
+        'iconColor': '#C0BD21',
         'children': [],
         'meta': {}
       },
@@ -36,7 +36,7 @@ const menuList:IMenuList = [
         'path': '404',
         'component': 'views/common/404',
         'icon': 'House',
-        'iconBgColor': '#A206A6',
+        'iconColor': '#A206A6',
         'children': [],
         'meta': {}
       },
@@ -45,7 +45,7 @@ const menuList:IMenuList = [
         'path': '500',
         'component': 'views/common/500',
         'icon': 'Share',
-        'iconBgColor': '#B55FB3',
+        'iconColor': '#B55FB3',
         'children': [],
         'meta': {}
       }
@@ -54,21 +54,21 @@ const menuList:IMenuList = [
   {
     'label': '多级菜单',
     'path': '/deep',
-    'iconBgColor': '#7624E2',
+    'iconColor': '#7624E2',
     'icon': 'More',
     'meta': {},
     'children': [
       {
         'label': '多级菜单1-1',
         'path': '/deep/deep',
-        'iconBgColor': '#C818E5',
+        'iconColor': '#C818E5',
         'icon': 'House',
         'meta': {},
         'children': [
           {
             'label': '多级菜单2-1',
             'path': '/deep/deep/deep',
-            'iconBgColor': '#DEEE1C',
+            'iconColor': '#DEEE1C',
             'component': 'views/layout/deep',
             'icon': 'House',
             'meta': {

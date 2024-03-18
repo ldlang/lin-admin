@@ -6,7 +6,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash'
 import { Encrypt } from '@/utils'
-import useUserStore from '@/store/userStore'
+import useUserStore from '@/store/modules/user'
 const store = useUserStore()
 const router = useRouter()
 

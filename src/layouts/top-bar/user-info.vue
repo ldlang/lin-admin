@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useUserStore from '@/store/userStore'
+import useUserStore from '@/store/modules/user'
 const router = useRouter()
 const { userInfo } = toRefs(useUserStore())
 

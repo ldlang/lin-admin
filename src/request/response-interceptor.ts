@@ -1,6 +1,6 @@
 import type { AxiosResponse, AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
-import useUserStore from '@/store/userStore'
+import useUserStore from '@/store/modules/user'
 const store = useUserStore()
 
 const requestInterceptor = {

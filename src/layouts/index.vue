@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import asideMenu from './components/aside-menu.vue'
+import asideMenu from './aside/aside-menu.vue'
 import topBar from './top-bar/index.vue'
+import useUserStore from '@/store/modules/user'
+const { menuList } = toRefs(useUserStore())
 
 </script>
 
@@ -8,7 +10,7 @@ import topBar from './top-bar/index.vue'
   <div>
     <el-container>
       <el-aside class="h-screen">
-        <aside-menu />
+        <aside-menu :menuList="menuList" />
       </el-aside>
       <el-container>
         <el-header>

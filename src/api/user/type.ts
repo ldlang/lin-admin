@@ -3,7 +3,7 @@ export interface IMenuItem {
   path: string,
   component?: string,
   icon: string,
-  iconBgColor: string,
+  iconColor: string,
   meta: {
     keepAlive?: boolean,
     tag?: boolean,
