@@ -3,14 +3,16 @@ import type { IUserInfo } from '@/api'
 
 interface IUserState {
   token: string
-  userInfo: IUserInfo
+  userInfo: IUserInfo,
+  menuList: any[]
 }
 
 const userStore = defineStore('userStore', {
   state: (): IUserState=> {
     return {
       token: '',
-      userInfo: {} as IUserInfo
+      userInfo: {} as IUserInfo,
+      menuList: []
     }
   }
 })

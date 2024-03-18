@@ -1,21 +1,17 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-export const routes: Array<RouteRecordRaw> = [
+export const layoutRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'index',
     component: ()=> import('@/layouts/index.vue'),
+    redirect: '/home',
     children: [
       {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: ()=> import('@/views/home/home.vue')
       }
     ]
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: ()=> import('@/views/login/login.vue')
   }
 ]

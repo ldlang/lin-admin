@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import asideMenu from './components/aside-menu.vue'
-import topBar from './components/top-bar.vue'
+import topBar from './top-bar/index.vue'
 
 </script>
 
@@ -31,7 +31,7 @@ import topBar from './components/top-bar.vue'
 </template>
 
 <style lang="scss" scoped>
-.left-aside {
+.el-aside {
   width: $menu-width;
 }
 
