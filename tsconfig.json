@@ -20,7 +20,8 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["element-plus/global"],
+    // "vite/client" 解决 类型“ImportMeta”上不存在属性“glob”
+    "types": ["element-plus/global", "vite/client"],
     // 解决 找不到模块“@/store/userStore”或其相应的类型声明。ts(2307)
     "baseUrl": "./",  // 解析非相对模块的基础地址，默认是当前目录
     "paths": {

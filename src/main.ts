@@ -15,12 +15,15 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // element-plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import useUserStore from './store/modules/user'
 
 const app = createApp(App)
 // vue-router插件
 app.use(router)
 // pinia插件
 app.use(pinia)
+// 添加动态路由
+useUserStore().addMenuRoutes()
 // element-plus插件
 app.use(ElementPlus)
 // element-plus图标

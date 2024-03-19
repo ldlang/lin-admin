@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IUserInfo, IMenuList } from '@/api'
+import router from '@/router'
 
 const menuList:IMenuList = [
   {
@@ -24,7 +25,7 @@ const menuList:IMenuList = [
     'children': [
       {
         'label': 'error403',
-        'path': '403',
+        'path': '/403',
         'component': 'views/common/403',
         'icon': 'House',
         'iconColor': '#C0BD21',
@@ -33,7 +34,7 @@ const menuList:IMenuList = [
       },
       {
         'label': 'error404',
-        'path': '404',
+        'path': '/404',
         'component': 'views/common/404',
         'icon': 'House',
         'iconColor': '#A206A6',
@@ -42,7 +43,7 @@ const menuList:IMenuList = [
       },
       {
         'label': 'error500',
-        'path': '500',
+        'path': '/500',
         'component': 'views/common/500',
         'icon': 'Share',
         'iconColor': '#B55FB3',
@@ -94,6 +95,12 @@ const userStore = defineStore('userStore', {
       token: '',
       userInfo: {} as IUserInfo,
       menuList: menuList
+    }
+  },
+  actions: {
+    addMenuRoutes() {
+      this.menuList = menuList
+      router.routerUtils.formatRoutes(this.menuList)
     }
   }
 })
