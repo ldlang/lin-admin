@@ -42,19 +42,22 @@ function handleMenuItemClick(item: IMenuItem) {
             <span>{{ item.meta?.title }}</span>
           </template>
           <template v-for="(subItem, subIndex) in item.children" :key="subIndex">
-            <el-menu-item
-              :index="subItem.path"
-              v-if="subItem?.children?.length <= 0"
-              @click="handleMenuItemClick(item)">
-              <el-icon>
-                <component :is="subItem.icon" />
-              </el-icon>
-              <template #title>
-                <span>{{ subItem.meta?.title }}</span>
-              </template>
-            </el-menu-item>
+            <template v-if="subItem?.children?.length <= 0">
+              <el-menu-item
+                :index="subItem.path"
+                @click="handleMenuItemClick(subItem)">
+                <el-icon>
+                  <component :is="subItem.icon" />
+                </el-icon>
+                <template #title>
+                  <span>{{ subItem.meta?.title }}</span>
+                </template>
+              </el-menu-item>
+            </template>
             <!-- 有多级的菜单 - 递归 -->
-            <aside-menu :menu-list="[subItem]" v-else />
+            <template v-else>
+              <aside-menu :menu-list="[subItem]" />
+            </template>
           </template>
         </el-sub-menu>
       </template>

@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// pinia插件
+import pinia from './store'
 // vue-router插件
 import router from './router'
 // vue-router权限插件
 import './router/permission'
-// pinia插件
-import pinia from './store'
 // unocss插件
 import 'virtual:uno.css'
 // 引入normalize样式库
@@ -18,12 +18,13 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import useUserStore from './store/modules/user'
 
 const app = createApp(App)
-// vue-router插件
-app.use(router)
 // pinia插件
 app.use(pinia)
-// 添加动态路由
+// 添加动态路由,必须在pinia注册只后，和router注册之前
 useUserStore().addMenuRoutes()
+// vue-router插件
+app.use(router)
+
 // element-plus插件
 app.use(ElementPlus)
 // element-plus图标
