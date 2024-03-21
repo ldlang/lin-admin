@@ -28,7 +28,7 @@ function handleMenuItemClick(item: IMenuItem) {
             <component :is="item.icon" />
           </el-icon>
           <template #title>
-            <span>{{ item.label }}</span>
+            <span>{{ item.meta?.title }}</span>
           </template>
         </el-menu-item>
       </template>
@@ -39,7 +39,7 @@ function handleMenuItemClick(item: IMenuItem) {
             <el-icon>
               <component :is="item.icon" />
             </el-icon>
-            <span>{{ item.label }}</span>
+            <span>{{ item.meta?.title }}</span>
           </template>
           <template v-for="(subItem, subIndex) in item.children" :key="subIndex">
             <el-menu-item
@@ -50,7 +50,7 @@ function handleMenuItemClick(item: IMenuItem) {
                 <component :is="subItem.icon" />
               </el-icon>
               <template #title>
-                <span>{{ subItem.label }}</span>
+                <span>{{ subItem.meta?.title }}</span>
               </template>
             </el-menu-item>
             <!-- 有多级的菜单 - 递归 -->

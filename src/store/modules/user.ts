@@ -4,7 +4,7 @@ import router from '@/router'
 
 const menuList:IMenuList = [
   {
-    label: 'crud模板',
+    name: 'crud',
     path: '/crud',
     component: 'views/crud',
     icon: 'House',
@@ -12,68 +12,82 @@ const menuList:IMenuList = [
     meta: {
       keepAlive: false,
       tag: false,
-      isHide: false
+      isHide: false,
+      title: 'crud模板'
     },
     children: []
   },
   {
-    label: '异常页',
+    name: 'error',
     path: '/error',
     icon: 'Avatar',
-    meta: {},
+    meta: {
+      title: '异常页'
+    },
     'iconColor': '#164C4B',
     'children': [
       {
-        'label': 'error403',
+        name: 'error403',
         'path': '/403',
         'component': 'views/common/403',
         'icon': 'House',
         'iconColor': '#C0BD21',
         'children': [],
-        'meta': {}
+        'meta': {
+          title: 'error403'
+        }
       },
       {
-        'label': 'error404',
+        name: 'error404',
         'path': '/404',
         'component': 'views/common/404',
         'icon': 'House',
         'iconColor': '#A206A6',
         'children': [],
-        'meta': {}
+        'meta': {
+          title: 'error404'
+        }
       },
       {
-        'label': 'error500',
+        'name': 'error500',
         'path': '/500',
         'component': 'views/common/500',
         'icon': 'Share',
         'iconColor': '#B55FB3',
         'children': [],
-        'meta': {}
+        'meta': {
+          title: 'error500'
+        }
       }
     ]
   },
   {
-    'label': '多级菜单',
+    'name': 'deep',
     'path': '/deep',
     'iconColor': '#7624E2',
     'icon': 'More',
-    'meta': {},
+    'meta': {
+      title: '多级菜单'
+    },
     'children': [
       {
-        'label': '多级菜单1-1',
+        'name': 'deep-1',
         'path': '/deep/deep',
         'iconColor': '#C818E5',
         'icon': 'House',
-        'meta': {},
+        'meta': {
+          title: '多级菜单1-1'
+        },
         'children': [
           {
-            'label': '多级菜单2-1',
+            'name': 'deep-2',
             'path': '/deep/deep/deep',
             'iconColor': '#DEEE1C',
             'component': 'views/layout/deep',
             'icon': 'House',
             'meta': {
-              keepAlive: true
+              keepAlive: true,
+              title: '多级菜单2-1'
             },
             children: []
           }

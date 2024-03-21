@@ -51,7 +51,7 @@ const onSubmitLoginClick = async()=> {
 
 <template>
   <div class="login flex justify-center items-center">
-    <el-card shadow="always" class="w-100 h-60">
+    <el-card shadow="always">
       <template #header>
         <h3 class="text-center">
           lindalang - blog后台

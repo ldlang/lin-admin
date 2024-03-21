@@ -1,15 +1,17 @@
 export interface IMenuItem {
-  label: string,
+  name: string,
   path: string,
   component?: string,
   icon: string,
   iconColor: string,
   meta: {
+    title?: string,
     keepAlive?: boolean,
     tag?: boolean,
-    isHide?: boolean
+    isHide?: boolean,
   },
-  children: [] | IMenuItem[]
+  children: [] | IMenuItem[],
+  redirect?: string
 }
 
 export type IMenuList = IMenuItem[]
