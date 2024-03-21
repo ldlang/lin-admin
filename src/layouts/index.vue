@@ -10,7 +10,9 @@ const { menuList } = toRefs(useUserStore())
   <div>
     <el-container>
       <el-aside class="h-screen">
-        <aside-menu :menuList="menuList" />
+        <el-scrollbar height="100vh">
+          <aside-menu :menuList="menuList" />
+        </el-scrollbar>
       </el-aside>
       <el-container>
         <el-header>
@@ -46,6 +48,12 @@ const { menuList } = toRefs(useUserStore())
   background-color: $mian-bg;
   div {
     background-color: $bg-fff;
+  }
+}
+
+.el-scrollbar{
+  .el-menu{
+    border-right: none;
   }
 }
 
