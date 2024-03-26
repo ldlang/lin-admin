@@ -1,23 +1,13 @@
 <script setup lang="ts">
-const screen = ref(false)
-const onFullScreenClick = ()=> {
-  screen.value = !!document.fullscreenElement
-  if (!screen.value) {
-    // 全屏
-    document.documentElement.requestFullscreen()
-  } else {
-    // 退出全屏
-    document.exitFullscreen()
-  }
-}
+import { useFullscreen } from '@vueuse/core'
+const { isFullscreen, enter, exit } = useFullscreen()
 </script>
 
 <template>
-  <div class="flex items-center text-20 pr-20">
-    <el-tooltip content="全屏" placement="bottom">
-      <el-icon @click="onFullScreenClick" class="cursor-pointer">
-        <FullScreen />
-      </el-icon>
+  <div class="flex items-center !text-20 pr-20">
+    <el-tooltip :content="isFullscreen ? '退出全屏' : '全屏'" placement="bottom">
+      <i v-if="!isFullscreen" @click="enter" class="iconfont icon-quanping hand !text-20" />
+      <i v-if="isFullscreen" @click="exit" class="iconfont icon-tuichuquanping hand !text-17" />
     </el-tooltip>
   </div>
 </template>

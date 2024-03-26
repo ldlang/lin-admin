@@ -11,6 +11,7 @@ const { isCollapse } = toRefs(useCommonStore())
   导致深层次的菜单刷新无法默认展开，所以需要在子组件中递归 -->
   <el-scrollbar height="100vh">
     <el-menu
+      :class="{'aside-menu-collapse': isCollapse }"
       unique-opened
       :default-active="$route.path"
       collapse-transition
@@ -21,9 +22,16 @@ const { isCollapse } = toRefs(useCommonStore())
 </template>
 
 <style lang="scss">
+:root{
+  --el-menu-item-height: 30px;
+}
 .el-scrollbar{
+  transition: all 0.3s;
   .el-menu{
     border-right: none;
+  }
+  .aside-menu-collapse{
+    width: $menu-collapse-width;
   }
 }
 </style>

@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// iconfont
+import '@/assets/iconfont/iconfont.css'
 // pinia插件
 import pinia from './store'
 // vue-router插件

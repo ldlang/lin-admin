@@ -11,10 +11,10 @@ const onUserCommand = (command: string)=> {
 </script>
 
 <template>
-  <div class="pr-20">
+  <div class="user-info">
     <el-dropdown @command="onUserCommand">
       <template #default>
-        <div class="flex flex-justify-center items-center cursor-pointer">
+        <div class="flex flex-justify-center items-center hand text-main">
           <el-avatar shape="circle" :src="userInfo.avatar" size="small" />
           <span class="ml-1">{{ userInfo.name }}</span>
           <el-icon class="el-icon--right"><arrow-down /></el-icon>
@@ -29,3 +29,12 @@ const onUserCommand = (command: string)=> {
     </el-dropdown>
   </div>
 </template>
+
+<style lang="scss">
+.user-info {
+  // 隐藏el-dropdown选中时的边框
+  :focus-visible {
+    outline: -webkit-focus-ring-color auto 0;
+  }
+}
+</style>

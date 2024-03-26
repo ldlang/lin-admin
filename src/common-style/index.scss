@@ -1,2 +1,6 @@
 @import './color.scss';
 @import './size.scss';
+@import './mixin.scss';
+
+//滚动条样式
+@include scrollBar;

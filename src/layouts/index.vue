@@ -1,38 +1,42 @@
 <script setup lang="ts">
 import asideMenu from './aside/aside-menu.vue'
 import topBar from './top-bar/index.vue'
+import useCommonStore from '@/store/modules/common'
+const { isCollapse } = toRefs(useCommonStore())
 
 </script>
 
 <template>
-  <div>
+  <el-container>
+    <el-aside class="h-screen" :class="{ 'aside-collapse': isCollapse }">
+      <aside-menu />
+    </el-aside>
     <el-container>
-      <el-aside class="h-screen">
-        <aside-menu />
-      </el-aside>
-      <el-container>
-        <el-header>
-          <top-bar />
-        </el-header>
-        <el-main>
-          <div class="w-full h-full">
-            <router-view v-slot="{ Component }">
-              <transition name="fade" mode="out-in">
-                <div :key="$route.path">
-                  <component :is="Component" />
-                </div>
-              </transition>
-            </router-view>
-          </div>
-        </el-main>
-      </el-container>
+      <el-header>
+        <top-bar />
+      </el-header>
+      <el-main>
+        <div class="w-full h-full">
+          <router-view v-slot="{ Component }">
+            <transition name="fade" mode="out-in">
+              <div :key="$route.path">
+                <component :is="Component" />
+              </div>
+            </transition>
+          </router-view>
+        </div>
+      </el-main>
     </el-container>
-  </div>
+  </el-container>
 </template>
 
 <style lang="scss" scoped>
 .el-aside {
+  transition: all 0.3s;
   width: $menu-width;
+}
+.aside-collapse{
+  width: $menu-collapse-width;
 }
 
 .el-header {

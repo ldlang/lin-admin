@@ -14,6 +14,10 @@
 10. [vite-plugin-eslint - eslint 插件](https://www.npmjs.com/package/vite-plugin-eslint)
 11. [vite - 打包插件](https://vitejs.cn/vite3-cn/)
 12. [pinia-plugin-persistedstate - 状态持久化](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)
+13. [unocss - 样式预处理](https://unocss.dev/)
+14. [lodash - 工具函数](https://www.lodashjs.com/)
+15. [typescript - js 超集](https://www.typescriptlang.org/zh/docs/handbook/typescript-from-scratch.html)
+16. [vueuse - vue 工具库](https://vueuse.org/)
 
 ## 生成文件目录树
 
