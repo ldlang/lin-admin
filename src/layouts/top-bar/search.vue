@@ -12,6 +12,7 @@ interface IMenus {
 }
 const meuns = ref<Array<IMenus>>([]);
 
+// 格式化菜单
 (function() {
   const formatMenusFun = (menu: IMenuList)=> {
     menu.forEach((item:IMenuItem)=> {
@@ -65,3 +66,20 @@ function handleSelectClick(item: unknown) {
     </el-autocomplete>
   </div>
 </template>
+
+<style lang="scss" scoped>
+::v-deep(.el-input__wrapper){
+  box-shadow: none;
+  background: transparent;
+  input::-webkit-input-placeholder{ /*WebKit browsers*/
+    color: #FEFEFE;
+  }
+  input::-moz-input-placeholder{ /*Mozilla Firefox*/
+    color: #FEFEFE;
+  }
+  input::-ms-input-placeholder{ /*Internet Explorer*/
+    color: #FEFEFE;
+  }
+}
+
+</style>
