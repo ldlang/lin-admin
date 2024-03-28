@@ -9,6 +9,7 @@ export interface IMenuItem {
     keepAlive?: boolean,
     tag?: boolean,
     isHide?: boolean,
+    isSearch?: boolean,
   },
   children: [] | IMenuItem[],
   redirect?: string

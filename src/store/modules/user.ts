@@ -13,7 +13,8 @@ const menuList:IMenuList = [
       keepAlive: false,
       tag: false,
       isHide: false,
-      title: 'crud模板'
+      title: 'crud模板',
+      isSearch: true
     },
     children: []
   },
@@ -34,7 +35,8 @@ const menuList:IMenuList = [
         'iconColor': '#C0BD21',
         'children': [],
         'meta': {
-          title: 'error403'
+          title: 'error403',
+          isSearch: true
         }
       },
       {
@@ -45,7 +47,8 @@ const menuList:IMenuList = [
         'iconColor': '#A206A6',
         'children': [],
         'meta': {
-          title: 'error404'
+          title: 'error404',
+          isSearch: true
         }
       },
       {
@@ -56,7 +59,8 @@ const menuList:IMenuList = [
         'iconColor': '#B55FB3',
         'children': [],
         'meta': {
-          title: 'error500'
+          title: 'error500',
+          isSearch: true
         }
       }
     ]
@@ -87,7 +91,8 @@ const menuList:IMenuList = [
             'icon': 'House',
             'meta': {
               keepAlive: true,
-              title: '多级菜单2-1'
+              title: '多级菜单2-1',
+              isSearch: true
             },
             children: []
           }
