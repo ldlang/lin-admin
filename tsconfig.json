@@ -13,6 +13,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
+    /* dayjs需要的支持 */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Linting */
     "strict": true,

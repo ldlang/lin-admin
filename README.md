@@ -18,6 +18,7 @@
 14. [lodash - 工具函数](https://www.lodashjs.com/)
 15. [typescript - js 超集](https://www.typescriptlang.org/zh/docs/handbook/typescript-from-scratch.html)
 16. [vueuse - vue 工具库](https://vueuse.org/)
+17. [dayjs - 时间处理](https://day.js.org/zh-CN/)
 
 ## 生成文件目录树
 
