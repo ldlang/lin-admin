@@ -1,6 +1,7 @@
 @import './color.scss';
 @import './size.scss';
 @import './mixin.scss';
-
+// 主题
+@import './theme/colorful.scss';
 //滚动条样式
 @include scrollBar;

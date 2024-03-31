@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
+import type { ICommonState } from '@/store/modules/module-type/common-type'
 
 const commonStore = defineStore('commonStore', {
-  state: ()=> {
+  state: (): ICommonState=> {
     return {
-      isCollapse: false
+      isCollapse: false,
+      theme: 'default'
     }
   }
 })

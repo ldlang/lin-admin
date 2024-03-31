@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
-import type { IUserInfo, IMenuList } from '@/api'
 import router from '@/router'
+import type { IUserInfo, IMenuList } from '@/api'
+import type { IUserState } from '@/store/modules/module-type/user-type'
 
 const menuList:IMenuList = [
   {
@@ -101,12 +102,6 @@ const menuList:IMenuList = [
     ]
   }
 ]
-
-interface IUserState {
-  token: string
-  userInfo: IUserInfo,
-  menuList: IMenuList
-}
 
 const userStore = defineStore('userStore', {
   state: (): IUserState=> {
