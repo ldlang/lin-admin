@@ -5,7 +5,9 @@ const commonStore = defineStore('commonStore', {
   state: (): ICommonState=> {
     return {
       isCollapse: false,
-      theme: 'default'
+      theme: 'default',
+      isLock: false,
+      lockPasswd: ''
     }
   }
 })

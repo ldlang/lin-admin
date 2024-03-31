@@ -3,7 +3,6 @@
 import type { ILoginFrom } from '@/api'
 import { loginApi, getUserInfoApi } from '@/api'
 import type { FormInstance, FormRules } from 'element-plus'
-import { ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash'
 import { Encrypt } from '@/utils'
 import useUserStore from '@/store/modules/user'

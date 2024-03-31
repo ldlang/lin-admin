@@ -1,0 +1,27 @@
+<script setup lang="ts">
+import { Encrypt } from '@/utils'
+import useCommonStore from '@/store/modules/common'
+const { isLock, lockPasswd } = toRefs(useCommonStore())
+const router = useRouter()
+
+function lockClick() {
+  ElMessageBox.prompt('请输入锁屏密码', '提示', {
+    confirmButtonText: '锁屏',
+    cancelButtonText: '取消',
+    inputPattern: /^[\s\S]*.*[^\s][\s\S]*$/,
+    inputErrorMessage: '锁屏密码不能为空'
+  }).then(({ value })=> {
+    lockPasswd.value = Encrypt(value)
+    isLock.value = true
+    ElMessage.success('锁屏成功')
+    router.push('/lock-page')
+  }).catch(()=> {})
+}
+
+</script>
+
+<template>
+  <div class="w-20 h-20 mx-10 flex justify-center items-center">
+    <i class="iconfont icon-suoding text-20 hand" @click="lockClick" />
+  </div>
+</template>

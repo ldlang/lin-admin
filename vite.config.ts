@@ -4,6 +4,7 @@ import eslintPlugin from 'vite-plugin-eslint' // 引入vite配合eslint的包
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite' // 引入vite自动导入api
 import Components from 'unplugin-vue-components/vite' // 引入vite自动导入组件的包
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' // 引入vite自动导入element-plus组件的包
 import { resolve } from 'path'
 
 export default defineConfig({
@@ -19,7 +20,9 @@ export default defineConfig({
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
       // 生成的文件名和位置
-      dts: 'src/declare-auto/auto-import.d.ts'
+      dts: 'src/declare-auto/auto-import.d.ts',
+      // element-plus组件自动导入
+      resolvers: [ElementPlusResolver()]
     }),
     // 组件自动导入,
     Components({
@@ -28,7 +31,9 @@ export default defineConfig({
       // 组件有效扩展名
       extensions: ['vue'],
       // 生成的文件名和位置
-      dts: 'src/declare-auto/components.d.ts'
+      dts: 'src/declare-auto/components.d.ts',
+      // element-plus组件自动导入
+      resolvers: [ElementPlusResolver()]
     })
   ],
   css: {

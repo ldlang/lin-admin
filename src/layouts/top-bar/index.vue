@@ -5,6 +5,7 @@ import userInfo from './user-info.vue'
 import fullScreen from './full-screen.vue'
 import search from './search.vue'
 import theme from './theme.vue'
+import lock from './lock.vue'
 
 </script>
 
@@ -20,6 +21,7 @@ import theme from './theme.vue'
     <div class="flex items-center">
       <theme />
       <full-screen />
+      <lock />
       <user-info />
     </div>
   </div>
