@@ -8,7 +8,7 @@ function collapseClick() {
 </script>
 
 <template>
-  <div>
+  <div class="flex items-center">
     <el-icon
       :size="20"
       @click="collapseClick"
