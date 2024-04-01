@@ -7,7 +7,8 @@ const commonStore = defineStore('commonStore', {
       isCollapse: false,
       theme: 'default',
       isLock: false,
-      lockPasswd: ''
+      lockPasswd: '',
+      lockPath: ''
     }
   }
 })

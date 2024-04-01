@@ -37,6 +37,8 @@ const onSubmitLoginClick = async()=> {
         const result = await getUserInfoApi()
         store.userInfo = result?.data
         ElMessage.success('登录成功！')
+        // 动态添加路由
+        store.addMenuRoutes()
         router.replace('/')
       } catch (error: any) {
         console.error(error)

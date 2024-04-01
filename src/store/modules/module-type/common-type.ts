@@ -7,4 +7,6 @@ export interface ICommonState {
   isLock: boolean;
   /** 锁屏密码 */
   lockPasswd: string;
+  /** 锁屏时的页面路径 */
+  lockPath: string;
 }

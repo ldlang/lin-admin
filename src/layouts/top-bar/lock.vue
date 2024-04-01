@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Encrypt } from '@/utils'
 import useCommonStore from '@/store/modules/common'
-const { isLock, lockPasswd } = toRefs(useCommonStore())
+const { isLock, lockPasswd, lockPath } = toRefs(useCommonStore())
 const router = useRouter()
+const route = useRoute()
 
 function lockClick() {
   ElMessageBox.prompt('请输入锁屏密码', '提示', {
@@ -14,8 +15,9 @@ function lockClick() {
   }).then(({ value })=> {
     lockPasswd.value = Encrypt(value)
     isLock.value = true
-    ElMessage.success('锁屏成功')
+    lockPath.value = route.fullPath
     router.push('/lock-page')
+    ElMessage.success('锁屏成功')
   }).catch(()=> {})
 }
 

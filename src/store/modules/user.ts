@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import router from '@/router'
 import type { IUserInfo, IMenuList } from '@/api'
 import type { IUserState } from '@/store/modules/module-type/user-type'
+import useCommonStore from './common'
 
 const menuList:IMenuList = [
   {
@@ -115,6 +116,15 @@ const userStore = defineStore('userStore', {
     addMenuRoutes() {
       this.menuList = menuList
       router.routerUtils.formatRoutes(this.menuList)
+    },
+    logout() {
+      this.token = ''
+      this.userInfo = {} as IUserInfo
+      this.menuList = []
+      const { isLock, lockPasswd, lockPath } = toRefs(useCommonStore())
+      isLock.value = false
+      lockPasswd.value = ''
+      lockPath.value = ''
     }
   }
 })
