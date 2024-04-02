@@ -77,7 +77,7 @@ const LogoutClick = async()=> {
       :model="lockForm"
       :rules="rules"
       hide-required-asterisk
-      class="w-340  text-center py-10"
+      class="w-340 text-center py-10"
       label-width="70px">
       <el-form-item label="解锁密码" prop="lockPasswd">
         <el-input size="large" :type="isHide ? 'password' : 'text'" v-model="lockForm.lockPasswd">

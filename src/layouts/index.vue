@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import asideMenu from './aside/aside-menu.vue'
 import topBar from './top-bar/index.vue'
+import tag from './tag/tag.vue'
 import useCommonStore from '@/store/modules/common'
 const { isCollapse } = toRefs(useCommonStore())
 
@@ -14,6 +15,7 @@ const { isCollapse } = toRefs(useCommonStore())
     <el-container>
       <el-header>
         <top-bar />
+        <tag />
       </el-header>
       <el-main>
         <div class="w-full h-full">
@@ -41,7 +43,7 @@ const { isCollapse } = toRefs(useCommonStore())
 
 .el-header {
   padding: 0;
-  height: $top-bar-height;
+  height: calc(#{$top-bar-height} + #{$top-tag-height});
 }
 
 .el-main {

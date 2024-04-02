@@ -1,18 +1,20 @@
-export interface IMenuItem {
-  name: string,
-  path: string,
-  component?: string,
-  icon: string,
-  iconColor: string,
-  meta: {
-    title?: string,
-    keepAlive?: boolean,
-    tag?: boolean,
-    isHide?: boolean,
-    isSearch?: boolean,
-  },
-  children: [] | IMenuItem[],
-  redirect?: string
+export interface IMeta {
+  title?: string;
+  keepAlive?: boolean;
+  tag?: boolean;
+  isHide?: boolean;
+  isSearch?: boolean;
 }
 
-export type IMenuList = IMenuItem[]
+export interface IMenuItem {
+  name: string;
+  path: string;
+  component?: string;
+  icon: string;
+  iconColor: string;
+  meta: IMeta;
+  children: [] | IMenuItem[];
+  redirect?: string;
+}
+
+export type IMenuList = IMenuItem[];

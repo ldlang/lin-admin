@@ -69,6 +69,9 @@ function handleSelectClick(item: unknown) {
 
 <style lang="scss" scoped>
 ::v-deep(.el-input__wrapper){
+  .el-input__inner{
+    color: #FEFEFE;
+  }
   box-shadow: none;
   background: transparent;
   input::-webkit-input-placeholder{ /*WebKit browsers*/

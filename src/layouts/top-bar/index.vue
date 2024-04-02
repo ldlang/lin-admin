@@ -10,7 +10,7 @@ import lock from './lock.vue'
 </script>
 
 <template>
-  <div class="top-bar flex flex-justify-between items-center w-full h-full bg-primary text-white px-20 transition-all-3">
+  <div class="top-bar flex flex-justify-between items-center h-full bg-primary text-white px-20 transition-all-3">
     <div class="flex items-center">
       <collapse />
       <refresh />
@@ -26,3 +26,9 @@ import lock from './lock.vue'
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.top-bar {
+  height: $top-bar-height;
+}
+</style>

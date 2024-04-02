@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ICommonState } from '@/store/modules/module-type/common-type'
+import type { ICommonState, ITagList, ITagItem } from '@/store/modules/module-type/common-type'
 
 const commonStore = defineStore('commonStore', {
   state: (): ICommonState=> {
@@ -8,7 +8,9 @@ const commonStore = defineStore('commonStore', {
       theme: 'default',
       isLock: false,
       lockPasswd: '',
-      lockPath: ''
+      lockPath: '',
+      tagList: [] as ITagList,
+      activeTag: {} as ITagItem
     }
   }
 })
