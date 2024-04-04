@@ -45,6 +45,7 @@ function findTag(fullPath: string) {
 .top-tag{
   height: $top-tag-height;
 }
+
 ::v-deep(.el-tabs){
   height: $top-tag-height;
   line-height: $top-tag-height;
@@ -62,10 +63,14 @@ function findTag(fullPath: string) {
     line-height: $top-tag-height;
   }
   .el-tabs__item{
-    border-left: none;
+    padding: 0 15px;
   }
   .el-tabs__nav{
     border: none;
+  }
+  .is-active{
+    padding: 0 15px !important;
+    border-bottom: 2px solid $primary !important;
   }
 }
 </style>
