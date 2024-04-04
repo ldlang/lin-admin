@@ -6,6 +6,13 @@ const router = useRouter()
 
 // 当前激活的标签
 const activePath = ref('')
+// 鼠标右键点击时的位置
+const mousePosition = ref<{ x: string, y: string }>({
+  x: '0',
+  y: '0'
+})
+
+const rightClickMenuShow = ref(false)
 
 watch(activeTag, (val)=> {
   activePath.value = val.fullPath
@@ -23,6 +30,22 @@ function tagHandleClick(tab: TabsPaneContext) {
 function findTag(fullPath: string) {
   return tagList.value.find(item=> item.fullPath === fullPath)
 }
+
+// 鼠标右键点击事件
+function tagContextmenu(event: MouseEvent) {
+  // 阻止鼠标右键默认行为
+  event.preventDefault()
+  // 阻止事件冒泡
+  event.stopPropagation()
+  // 记录鼠标位置
+  mousePosition.value = {
+    x: event.clientX + 'px',
+    y: event.clientY + 'px'
+  }
+  // console.log(mousePosition.value)
+
+  rightClickMenuShow.value = true
+}
 </script>
 
 <template>
@@ -30,6 +53,7 @@ function findTag(fullPath: string) {
     <el-tabs
       v-model="activePath"
       type="card"
+      @contextmenu="tagContextmenu"
       @tab-click="tagHandleClick">
       <template v-for="(item, index) in tagList" :key="index">
         <el-tab-pane
@@ -38,12 +62,25 @@ function findTag(fullPath: string) {
           :name="item.fullPath" />
       </template>
     </el-tabs>
+
+    <div v-if="rightClickMenuShow" class="contextmenu fixed w-76 bg-white rd-5 z-10 hand flex flex-col ">
+      <div class="p-5 b-b-1 text-center b-b-gray-200 b-b-solid hover-bg-eee">关闭其他</div>
+      <div class="p-5 text-center hover-bg-eee">关闭所有</div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .top-tag{
   height: $top-tag-height;
+}
+
+.contextmenu{
+  top: v-bind('mousePosition.y');
+  left: v-bind('mousePosition.x');
+  opacity: 1;
+  border: 1px solid #ccc;
+  border-top-left-radius: 0;
 }
 
 ::v-deep(.el-tabs){

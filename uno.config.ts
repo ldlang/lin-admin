@@ -15,7 +15,10 @@ export default defineConfig({
       danger: '#F56C6C',
       white: '#FFFFFF',
       black: '#000000',
-      main: '#FEFEFE' // 主颜色
+      main: '#FEFEFE', // 主颜色
+      ccc: '#ccc',
+      ddd: '#ddd',
+      eee: '#eee'
     }
   },
   presets: [
