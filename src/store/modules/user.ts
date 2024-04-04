@@ -13,7 +13,7 @@ const menuList:IMenuList = [
     iconColor: '#CB56F2',
     meta: {
       keepAlive: false,
-      tag: false,
+      tag: true,
       isHide: false,
       title: 'crud模板',
       isSearch: true

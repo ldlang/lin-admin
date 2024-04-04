@@ -1,11 +1,12 @@
 import type { IMeta } from '@/api'
+import type { RouteParams, LocationQuery } from 'vue-router'
 
 export interface ITagItem {
   title: string;
   path: string;
   fullPath: string;
-  params?: string;
-  query?: string;
+  params?: RouteParams;
+  query?: LocationQuery;
   meta?: IMeta;
 }
 

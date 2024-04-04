@@ -10,7 +10,10 @@ export const layoutRoutes: Array<RouteRecordRaw> = [
       {
         path: '/home',
         name: 'home',
-        component: ()=> import('@/views/home/home.vue')
+        component: ()=> import('@/views/home/home.vue'),
+        meta: {
+          title: '首页'
+        }
       }
     ]
   }
