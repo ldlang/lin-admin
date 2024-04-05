@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import useCommomStore from '@/store/modules/common'
+import { isEmpty } from 'lodash'
 import type { TabsPaneContext } from 'element-plus'
+import { onClickOutside } from '@vueuse/core'
 const { tagList, activeTag } = toRefs(useCommomStore())
 const router = useRouter()
-
+// 首页路径
+const HOME_PATH = '/home'
 // 当前激活的标签
 const activePath = ref('')
+// 右键点击的tag的innerText，也就是tag的title
+const rightClickMenuTitle = ref('')
 // 鼠标右键点击时的位置
 const mousePosition = ref<{ x: string, y: string }>({
   x: '0',
   y: '0'
 })
 
+// 是否显示右键菜单
 const rightClickMenuShow = ref(false)
 
 watch(activeTag, (val)=> {
@@ -20,19 +26,16 @@ watch(activeTag, (val)=> {
 
 // 点击tag
 function tagHandleClick(tab: TabsPaneContext) {
-  const tag = findTag(tab.paneName as string)
+  const tag = tagList.value.find(item=> item.fullPath === tab.paneName as string)
   router.push({
     path: tag!.fullPath,
     query: tag?.query
   })
 }
 
-function findTag(fullPath: string) {
-  return tagList.value.find(item=> item.fullPath === fullPath)
-}
-
 // 鼠标右键点击事件
 function tagContextmenu(event: MouseEvent) {
+  rightClickMenuTitle.value = (event!.target as HTMLDivElement).innerText
   // 阻止鼠标右键默认行为
   event.preventDefault()
   // 阻止事件冒泡
@@ -42,9 +45,37 @@ function tagContextmenu(event: MouseEvent) {
     x: event.clientX + 'px',
     y: event.clientY + 'px'
   }
-  // console.log(mousePosition.value)
-
   rightClickMenuShow.value = true
+}
+// 点击了右键菜单的外部
+const contextmenuRef = ref<HTMLDivElement | null>(null)
+onClickOutside(contextmenuRef, ()=> {
+  rightClickMenuShow.value = false
+})
+
+// 关闭其他
+function closeOtherClick() {
+  tagList.value = tagList.value.filter(item=> {
+    if (!isEmpty(rightClickMenuTitle.value)) {
+      return item.title === rightClickMenuTitle.value || item.fullPath === HOME_PATH
+    } else {
+      return item.fullPath === activePath.value || item.fullPath === HOME_PATH
+    }
+  })
+  if (tagList.value.length === 2) {
+    router.push({
+      path: tagList.value[1].fullPath,
+      query: tagList.value[1].query
+    })
+  } else {
+    router.push(HOME_PATH)
+  }
+}
+
+// 关闭所有
+function closeAllClick() {
+  tagList.value = tagList.value.filter(item=> item.fullPath === HOME_PATH)
+  router.push(HOME_PATH)
 }
 </script>
 
@@ -57,15 +88,19 @@ function tagContextmenu(event: MouseEvent) {
       @tab-click="tagHandleClick">
       <template v-for="(item, index) in tagList" :key="index">
         <el-tab-pane
-          :closable="item.fullPath !== '/home'"
+          :closable="item.fullPath !== HOME_PATH"
           :label="item.title"
           :name="item.fullPath" />
       </template>
     </el-tabs>
 
-    <div v-if="rightClickMenuShow" class="contextmenu fixed w-76 bg-white rd-5 z-10 hand flex flex-col ">
-      <div class="p-5 b-b-1 text-center b-b-gray-200 b-b-solid hover-bg-eee">关闭其他</div>
-      <div class="p-5 text-center hover-bg-eee">关闭所有</div>
+    <div v-if="rightClickMenuShow" ref="contextmenuRef"
+      class="contextmenu fixed w-76 bg-white rd-3 z-10 hand flex flex-col shadow-lg">
+      <div class="p-5 b-b-1 text-center b-b-gray-200 b-b-solid hover-bg-eee"
+        @click="closeOtherClick">
+        关闭其他
+      </div>
+      <div class="p-5 text-center hover-bg-eee" @click="closeAllClick">关闭所有</div>
     </div>
   </div>
 </template>
@@ -78,9 +113,12 @@ function tagContextmenu(event: MouseEvent) {
 .contextmenu{
   top: v-bind('mousePosition.y');
   left: v-bind('mousePosition.x');
-  opacity: 1;
-  border: 1px solid #ccc;
-  border-top-left-radius: 0;
+  /* x 偏移量 | y 偏移量 | 阴影模糊半径 | 阴影颜色 */
+  box-shadow:
+    -2px 0 2px rgba(0, 0, 0, 0.2),
+    2px 0 2px rgba(0, 0, 0, 0.2),
+    0 -2px 2px rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 ::v-deep(.el-tabs){
