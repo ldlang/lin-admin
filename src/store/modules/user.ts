@@ -30,23 +30,23 @@ const menuList:IMenuList = [
     },
     'children': [
       {
-        'name': 'deep-1',
-        'path': '/deep/deep',
+        'name': 'deep1',
+        'path': '/deep1',
         'iconColor': '#C818E5',
         'icon': 'House',
         'meta': {
-          title: '多级菜单1-1'
+          title: '二级菜单'
         },
         'children': [
           {
-            'name': 'deep-2',
-            'path': '/deep/deep/deep',
+            'name': 'deep2',
+            'path': '/deep2',
             'iconColor': '#DEEE1C',
             'component': 'views/layout/deep',
             'icon': 'House',
             'meta': {
               keepAlive: true,
-              title: '多级菜单2-1',
+              title: '三级菜单',
               isSearch: true
             },
             children: []
