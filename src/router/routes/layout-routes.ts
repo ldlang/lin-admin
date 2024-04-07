@@ -14,6 +14,15 @@ export const layoutRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: '首页'
         }
+      },
+      {
+        path: '/user-info',
+        name: 'userInfo',
+        component: ()=> import('@/views/layout/user-info.vue'),
+        meta: {
+          title: '用户信息',
+          tag: true
+        }
       }
     ]
   }

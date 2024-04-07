@@ -1,3 +1,4 @@
+// 菜单的meta信息
 export interface IMeta {
   title?: string;
   keepAlive?: boolean;
@@ -6,6 +7,7 @@ export interface IMeta {
   isSearch?: boolean;
 }
 
+// 单个菜单
 export interface IMenuItem {
   name: string;
   path: string;
@@ -17,4 +19,13 @@ export interface IMenuItem {
   redirect?: string;
 }
 
+// 菜单列表
 export type IMenuList = IMenuItem[];
+
+// 用户信息
+export interface IUserInfoFrom {
+  name: string;
+  avatar: string;
+  newPassword: string;
+  confirmPassword: string;
+}

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import useUserStore from '@/store/modules/user'
 const router = useRouter()
-const { userInfo } = toRefs(useUserStore())
+const { userInfo, logout } = toRefs(useUserStore())
 
 const onUserCommand = (command: string)=> {
   if (command === 'logout') {
     router.replace('/login')
+    logout.value()
+  }
+  if (command === 'user') {
+    router.push('/user-info')
   }
 }
 </script>

@@ -4,7 +4,7 @@ export const commonRoutes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: ()=> import('@/views/login/login.vue'),
+    component: ()=> import('@/views/common/login.vue'),
     meta: {
       title: '登录',
       tag: false
