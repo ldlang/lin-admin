@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import useCommomStore from '@/store/modules/common'
+import useCommonStore from '@/store/modules/common'
 import { isEmpty } from 'lodash'
-import type { TabsPaneContext } from 'element-plus'
+import type { TabsPaneContext, TabPaneName } from 'element-plus'
 import { onClickOutside } from '@vueuse/core'
-const { tagList, activeTag } = toRefs(useCommomStore())
+const { tagList, activeTag } = toRefs(useCommonStore())
 const router = useRouter()
 // 首页路径
 const HOME_PATH = '/home'
@@ -53,6 +53,21 @@ onClickOutside(contextmenuRef, ()=> {
   rightClickMenuShow.value = false
 })
 
+// 关闭单个
+function tagRemoveClick(name: TabPaneName) {
+  // 如果关闭的是当前激活的tag,那么跳转到上一个tag
+  if (activePath.value === name) {
+    const index = tagList.value.findIndex(item=> item.fullPath === name)
+    if (index === -1) return
+    activePath.value = tagList.value[index - 1].fullPath
+    router.push({
+      path: tagList.value[index - 1].fullPath,
+      query: tagList.value[index - 1].query
+    })
+  }
+  tagList.value = tagList.value.filter(item=> item.fullPath !== name)
+}
+
 // 关闭其他
 function closeOtherClick() {
   tagList.value = tagList.value.filter(item=> {
@@ -85,7 +100,8 @@ function closeAllClick() {
       v-model="activePath"
       type="card"
       @contextmenu="tagContextmenu"
-      @tab-click="tagHandleClick">
+      @tab-click="tagHandleClick"
+      @tab-remove="tagRemoveClick">
       <template v-for="(item, index) in tagList" :key="index">
         <el-tab-pane
           :closable="item.fullPath !== HOME_PATH"
