@@ -21,53 +21,6 @@ const menuList:IMenuList = [
     children: []
   },
   {
-    name: 'error',
-    path: '/error',
-    icon: 'Avatar',
-    meta: {
-      title: '异常页'
-    },
-    'iconColor': '#164C4B',
-    'children': [
-      {
-        name: 'error403',
-        'path': '/403',
-        'component': 'views/common/403',
-        'icon': 'House',
-        'iconColor': '#C0BD21',
-        'children': [],
-        'meta': {
-          title: 'error403',
-          isSearch: true
-        }
-      },
-      {
-        name: 'error404',
-        'path': '/404',
-        'component': 'views/common/404',
-        'icon': 'House',
-        'iconColor': '#A206A6',
-        'children': [],
-        'meta': {
-          title: 'error404',
-          isSearch: true
-        }
-      },
-      {
-        'name': 'error500',
-        'path': '/500',
-        'component': 'views/common/500',
-        'icon': 'Share',
-        'iconColor': '#B55FB3',
-        'children': [],
-        'meta': {
-          title: 'error500',
-          isSearch: true
-        }
-      }
-    ]
-  },
-  {
     'name': 'deep',
     'path': '/deep',
     'iconColor': '#7624E2',

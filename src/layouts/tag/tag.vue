@@ -70,6 +70,7 @@ function tagRemoveClick(name: TabPaneName) {
 
 // 关闭其他
 function closeOtherClick() {
+  rightClickMenuShow.value = false
   tagList.value = tagList.value.filter(item=> {
     if (!isEmpty(rightClickMenuTitle.value)) {
       return item.title === rightClickMenuTitle.value || item.fullPath === HOME_PATH
@@ -89,6 +90,7 @@ function closeOtherClick() {
 
 // 关闭所有
 function closeAllClick() {
+  rightClickMenuShow.value = false
   tagList.value = tagList.value.filter(item=> item.fullPath === HOME_PATH)
   router.push(HOME_PATH)
 }
