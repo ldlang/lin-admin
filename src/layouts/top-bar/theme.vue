@@ -61,7 +61,8 @@ function setTheme(theme: string) {
     v-model="themeDialogVisible"
     title="主题切换"
     width="500"
-    align-center>
+    align-center
+    append-to-body>
     <el-radio-group v-model="themeRadio" class="w-full">
       <el-radio
         v-for="(item, index) in themeList"

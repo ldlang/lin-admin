@@ -1,6 +1,115 @@
-.colorful{
-  .top-bar{
-    background-color: red;
+.colorful {
+  // 菜单样式
+  $meun-bg-main-color: transparent;
+  $menu-text-color: #ffffff;
+  $menu-active-bg-color: transparent;
+  $menu-active-text-color: #409eff;
+  $menu-hover-bg: #000c17;
+  $menu-hover-text-color: #ffffff;
 
+  // 折叠后菜单弹出层样式
+  $meun-popup-bg: #ffffff;
+  $meun-popup-text-color: #000000;
+  $meun-popup-active-bg-color: #ecf5ff;
+  $meun-popup-active-text-color: #409eff;
+  $meun-popup-hover-bg: #ecf5ff;
+  $meun-popup-hover-text-color: #409eff;
+
+  // tag样式
+  $tag-text: #ffffff;
+  $tag-active: #409eff;
+  .layout-container {
+    background-image: url("/image/colorFul.jpg");
+    background-size: 100% 100%;
+    .el-main,
+    .menu-scrollbar,
+    .top-tag,
+    .top-bar {
+      background: transparent;
+    }
+    // 菜单样式
+    .el-aside {
+      box-shadow: 2px 0 2px rgba(0, 0, 0);
+    }
+    .top-bar,
+    .top-tag {
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .menu-scrollbar {
+      background: $meun-bg-main-color;
+      .el-menu {
+        background: $meun-bg-main-color;
+        .el-menu-item.is-active {
+          background: $menu-active-bg-color;
+          color: $menu-active-text-color;
+        }
+        .el-menu-item {
+          color: $menu-text-color;
+          &:hover {
+            background: $menu-hover-bg !important;
+            color: $menu-hover-text-color;
+          }
+        }
+      }
+      .el-sub-menu {
+        &__title {
+          color: $menu-text-color;
+          &:hover {
+            color: $menu-hover-text-color;
+            background: $menu-hover-bg !important;
+          }
+        }
+      }
+    }
+    .top-tag {
+      .el-tabs {
+        &__item {
+          color: $tag-text;
+        }
+        .is-active {
+          color: $tag-active;
+        }
+      }
+    }
+    .el-main > div {
+      opacity: 0.8;
+    }
+  }
+  // 折叠后menu文字的颜色
+  .el-menu--collapse {
+    .el-sub-menu.is-active {
+      .el-sub-menu__title {
+        color: $menu-active-text-color;
+        background: $menu-active-bg-color;
+      }
+    }
+  }
+  // 菜单折叠后弹出层样式
+  .el-menu--popup-container {
+    .el-menu {
+      background: $meun-popup-bg;
+      .el-menu-item.is-active {
+        background: $meun-popup-active-bg-color !important;
+        color: $meun-popup-active-text-color;
+      }
+      .el-menu-item {
+        color: $meun-popup-text-color;
+        &:hover {
+          color: $meun-popup-hover-text-color;
+          background: $meun-popup-hover-bg !important;
+        }
+      }
+      .el-sub-menu {
+        background: $meun-popup-bg;
+        &__title {
+          color: $meun-popup-text-color;
+          &:hover {
+            color: $meun-popup-hover-text-color;
+            background: $meun-popup-hover-bg !important;
+          }
+        }
+      }
+    }
   }
 }

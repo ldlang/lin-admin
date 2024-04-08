@@ -14,6 +14,8 @@ import 'virtual:uno.css'
 import 'normalize.css/normalize.css'
 // element-plus插件
 import 'element-plus/dist/index.css'
+// 样式
+import './common-style/index.scss'
 // element-plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import useUserStore from './store/modules/user'

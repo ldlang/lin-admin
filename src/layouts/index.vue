@@ -8,7 +8,7 @@ const { isCollapse } = toRefs(useCommonStore())
 </script>
 
 <template>
-  <el-container>
+  <el-container class="layout-container">
     <el-aside class="h-screen" :class="{ 'aside-collapse': isCollapse }">
       <aside-menu />
     </el-aside>

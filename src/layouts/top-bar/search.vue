@@ -50,7 +50,7 @@ function handleSelectClick(item: unknown) {
 </script>
 
 <template>
-  <div>
+  <div class="top-search">
     <el-autocomplete
       v-model="state"
       ref="autocomplete"

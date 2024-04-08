@@ -9,13 +9,14 @@ const { isCollapse } = toRefs(useCommonStore())
 <template>
   <!-- 不能在这个页面直接递归，因为这样就会产生两个el-menu，
   导致深层次的菜单刷新无法默认展开，所以需要在子组件中递归 -->
-  <el-scrollbar height="100vh">
+  <el-scrollbar height="100vh" class="bg-white menu-scrollbar">
     <el-menu
       :class="{'aside-menu-collapse': isCollapse }"
       unique-opened
       :default-active="$route.path"
       collapse-transition
-      :collapse="isCollapse">
+      :collapse="isCollapse"
+      popper-effect="light">
       <aside-menu-item :menuList="menuList" />
     </el-menu>
   </el-scrollbar>

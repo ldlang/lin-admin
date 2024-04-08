@@ -97,7 +97,7 @@ function closeAllClick() {
 </script>
 
 <template>
-  <div class="top-tag w-full">
+  <div class="top-tag w-full bg-white">
     <el-tabs
       v-model="activePath"
       type="card"
