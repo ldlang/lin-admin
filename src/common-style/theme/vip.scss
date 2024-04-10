@@ -1,45 +1,40 @@
-.colorful {
+.vip {
   // 菜单样式
-  $meun-bg-main-color: transparent;
-  $menu-text-color: #ffffff;
-  $menu-active-bg-color: transparent;
-  $menu-active-text-color: #409eff;
-  $menu-hover-bg: #000c17;
-  $menu-hover-text-color: #ffffff;
+  $meun-bg-main-color: #031527;
+  $menu-text-color: #b4b9bf;
+  $menu-active-bg-color: #0c141e;
+  $menu-active-text-color: #f6ca9d;
+  $menu-hover-bg: #0c141e;
+  $menu-hover-text-color: #fff;
 
   // 折叠后菜单弹出层样式
-  $meun-popup-bg: #ffffff;
-  $meun-popup-text-color: #000000;
-  $meun-popup-active-bg-color: #ecf5ff;
-  $meun-popup-active-text-color: #409eff;
-  $meun-popup-hover-bg: #ecf5ff;
-  $meun-popup-hover-text-color: #409eff;
+  $meun-popup-bg: #031527;
+  $meun-popup-text-color: #b4b9bf;
+  $meun-popup-active-bg-color: #031527;
+  $meun-popup-active-text-color: #f6ca9d;
+  $meun-popup-hover-bg: #031527;
+  $meun-popup-hover-text-color: #fff;
+
+  $top-title-bg: #031527;
+  $top-title-text-color: #f6ca9d;
+  // 顶部功能区样式
+  $top-bar-bg: #031527;
+  $top-bar-text-color: #f6ca9d;
 
   // tag样式
-  $tag-text: #ffffff;
-  $tag-active: #409eff;
+  $tag-text: #031527;
+  $tag-active: #f6ca9d;
   .layout-container {
-    background-image: url("/image/colorFul.jpg");
-    background-size: 100% 100%;
-    .el-main,
-    .menu-scrollbar,
-    .top-tag,
-    .top-bar,
-    .top-title {
-      background: transparent;
-    }
     // 菜单样式
-    .el-aside {
-      box-shadow: 2px 0 2px rgba(0, 0, 0);
-    }
-    .top-bar,
-    .top-tag,
-    .top-title {
-      box-sizing: border-box;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
     .menu-scrollbar {
       background: $meun-bg-main-color;
+      .top-title {
+        background: $top-title-bg;
+        box-sizing: border-box;
+        border-right: 1px solid $top-title-text-color;
+        border-bottom: 1px solid $top-title-text-color;
+        color: $top-title-text-color;
+      }
       .el-menu {
         background: $meun-bg-main-color;
         .el-menu-item.is-active {
@@ -64,16 +59,52 @@
         }
       }
     }
-    .top-tag {
-      .el-tabs {
-        &__item {
-          color: $tag-text;
-        }
-        .is-active {
-          color: $tag-active;
+    // 顶部菜单样式
+    .top-bar {
+      background: $top-bar-bg;
+      color: $top-bar-text-color;
+      .user-name {
+        color: $top-bar-text-color;
+      }
+      .top-search {
+        .el-input__wrapper {
+          .el-input__wrapper.is-focus {
+            box-shadow: 0 0 0 1px $top-bar-text-color inset;
+          }
+          .el-input__inner {
+            color: $top-bar-text-color;
+          }
+          input::-webkit-input-placeholder {
+            color: $top-bar-text-color;
+          }
+          input::-moz-input-placeholder {
+            color: $top-bar-text-color;
+          }
+          input::-ms-input-placeholder {
+            color: $top-bar-text-color;
+          }
         }
       }
     }
+    // 顶部tag样式
+    .top-tag {
+      .el-tabs {
+        &__item {
+          margin: 2px;
+          box-sizing: border-box;
+          color: $tag-text;
+          line-height: 26px;
+          height: 26px;
+          border: 1px solid $tag-active !important;
+          border-radius: 2px;
+        }
+        .is-active {
+          color: $tag-active;
+          border-bottom: 1px solid $tag-active !important;
+        }
+      }
+    }
+    // 内容区显示
     .el-main > div {
       opacity: 0.8;
     }

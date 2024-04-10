@@ -12,8 +12,6 @@ import './router/permission'
 import 'virtual:uno.css'
 // 引入normalize样式库
 import 'normalize.css/normalize.css'
-// element-plus插件
-import 'element-plus/dist/index.css'
 // 样式
 import './common-style/index.scss'
 // element-plus图标

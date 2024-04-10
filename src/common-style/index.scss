@@ -1,5 +1,6 @@
-@import './mixin.scss';
+@import "./mixin.scss";
 // 主题
-@import './theme/colorful.scss';
+@import "./theme/colorful.scss";
+@import "./theme/vip.scss";
 //滚动条样式
 @include scrollBar;
