@@ -12,7 +12,8 @@ export const layoutRoutes: Array<RouteRecordRaw> = [
         name: 'home',
         component: ()=> import('@/views/home/home.vue'),
         meta: {
-          title: '首页'
+          title: '首页',
+          keepAlive: true
         }
       },
       {

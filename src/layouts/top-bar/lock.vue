@@ -24,7 +24,7 @@ function lockClick() {
 </script>
 
 <template>
-  <div class="w-20 h-20 mx-10 flex justify-center items-center">
+  <div class="w-20 h-20 mx-10 flex justify-center items-center hover:scale-130">
     <el-tooltip content="锁屏" placement="bottom">
       <i class="iconfont icon-suoding text-20 hand" @click="lockClick" />
     </el-tooltip>

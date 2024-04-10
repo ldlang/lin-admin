@@ -19,12 +19,15 @@ const { isCollapse } = toRefs(useCommonStore())
       </el-header>
       <el-main>
         <div class="w-full h-full">
-          <router-view v-slot="{ Component }">
-            <transition name="fade" mode="out-in">
-              <div :key="$route.path">
-                <component :is="Component" />
-              </div>
-            </transition>
+          <router-view>
+            <template #default="{ Component, route }">
+              <transition name="fade" mode="out-in">
+                <keep-alive v-if="route.meta?.keepAlive">
+                  <component :is="Component" :key="route.path" />
+                </keep-alive>
+                <component v-else :is="Component" :key="route.path" />
+              </transition>
+            </template>
           </router-view>
         </div>
       </el-main>

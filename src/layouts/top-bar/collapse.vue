@@ -8,7 +8,7 @@ function collapseClick() {
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center hover:scale-130">
     <el-icon
       :size="20"
       @click="collapseClick"

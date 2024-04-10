@@ -51,7 +51,7 @@ function setTheme(theme: string) {
 </script>
 
 <template>
-  <div class="mx-10 w-20 h-20">
+  <div class="mx-10 w-20 h-20 hover:scale-130">
     <el-tooltip content="主题" placement="bottom">
       <i class="iconfont icon-zhuti_yifu text-20 hand" @click="themeClick" />
     </el-tooltip>
