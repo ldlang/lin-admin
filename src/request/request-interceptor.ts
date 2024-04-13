@@ -4,8 +4,8 @@ const store = useUserStore()
 
 const requestInterceptor = {
   /**
- * 发起请求前处理
- */
+   * 发起请求前处理
+   */
   success: (config: InternalAxiosRequestConfig)=> {
     // 接口几乎都是需要token的，所以统一加上token
     if (store.token) {
@@ -14,8 +14,8 @@ const requestInterceptor = {
     return config
   },
   /**
- * 发起请求错误处理
- */
+   * 发起请求错误处理
+   */
   fail: (error: AxiosError)=> {
     return Promise.reject(error)
   }

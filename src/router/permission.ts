@@ -38,3 +38,8 @@ router.beforeEach((to, from, next)=> {
   }
 })
 
+router.afterEach((to)=> {
+  // 设置页面标题
+  document.title = to.meta.title as string
+})
+
