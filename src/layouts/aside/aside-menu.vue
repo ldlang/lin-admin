@@ -46,7 +46,7 @@ watch(theme, (val)=> {
 }
 .top-title{
   height: $top-title-height;
-  background: #5eaff1;
+  background: #064d87;
 }
 .top-title-collapse{
   font-size: 18px;
