@@ -1,10 +1,26 @@
-$mian-bg: #f0f2f5;
+$main-bg: #f0f2f5;
 $bg-fff: #ffffff;
 
-$top-bar-main-color: #00BFFF;
+$top-bar-main-color: #00bfff;
+$top-title-bg: #064d87;
+// 菜单样式
+$menu-bg: #033b69;
+$menu-text-color: #f0f2f5;
+$menu-hover-bg: #022a4b;
+$menu-hover-text-color: #ffffff;
+$menu-active-bg-color: #022a4b;
+$menu-active-text-color: #00bfff;
 
-$primary: #409EFF;
-$secondary: #F56C6C;
-$success: #67C23A;
+// 折叠后菜单弹出层样式
+$meun-popup-bg: #033b69;
+$meun-popup-text-color: #f0f2f5;
+$meun-popup-active-bg-color: #022a4b;
+$meun-popup-active-text-color: #00bfff;
+$meun-popup-hover-bg: #022a4b;
+$meun-popup-hover-text-color: #ffffff;
+
+$primary: #409eff;
+$secondary: #f56c6c;
+$success: #67c23a;
 $info: #909399;
-$warning: #E6A23C;
+$warning: #e6a23c;

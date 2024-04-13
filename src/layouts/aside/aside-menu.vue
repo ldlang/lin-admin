@@ -37,8 +37,30 @@ watch(theme, (val)=> {
 }
 .menu-scrollbar{
   transition: all 0.3s;
+  background: $menu-bg;
   .el-menu{
     border-right: none;
+    background: $menu-bg;
+    .el-menu-item.is-active {
+      background: $menu-active-bg-color;
+      color: $menu-active-text-color;
+    }
+    .el-menu-item {
+      color: $menu-text-color;
+      &:hover {
+        background: $menu-hover-bg !important;
+        color: $menu-hover-text-color;
+      }
+    }
+    .el-sub-menu {
+      &__title {
+        color: $menu-text-color;
+        &:hover {
+          color: $menu-hover-text-color;
+          background: $menu-hover-bg !important;
+        }
+      }
+    }
   }
   .aside-menu-collapse{
     width: $menu-collapse-width;
@@ -46,9 +68,37 @@ watch(theme, (val)=> {
 }
 .top-title{
   height: $top-title-height;
-  background: #064d87;
+  background: $top-title-bg;
 }
 .top-title-collapse{
   font-size: 18px;
+}
+
+// 菜单折叠后弹出层样式
+.el-menu--popup-container {
+  .el-menu {
+    background: $meun-popup-bg;
+    .el-menu-item.is-active {
+      background: $meun-popup-active-bg-color !important;
+      color: $meun-popup-active-text-color;
+    }
+    .el-menu-item {
+      color: $meun-popup-text-color;
+      &:hover {
+        color: $meun-popup-hover-text-color;
+        background: $meun-popup-hover-bg !important;
+      }
+    }
+    .el-sub-menu {
+      background: $meun-popup-bg;
+      &__title {
+        color: $meun-popup-text-color;
+        &:hover {
+          color: $meun-popup-hover-text-color;
+          background: $meun-popup-hover-bg !important;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -449,6 +449,9 @@ module.exports = {
     ],
     // 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
     'array-bracket-spacing': [2, 'never'],
-    '@typescript-eslint/no-explicit-any': ['off']
+    '@typescript-eslint/no-explicit-any': ['off'],
+    'vue/comment-directive': [0, {
+      'reportUnusedDisableDirectives': false
+    }]
   }
 }

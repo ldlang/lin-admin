@@ -50,7 +50,7 @@ const { isCollapse } = toRefs(useCommonStore())
 }
 
 .el-main {
-  background-color: $mian-bg;
+  background-color: $main-bg;
   div {
     background-color: $bg-fff;
   }

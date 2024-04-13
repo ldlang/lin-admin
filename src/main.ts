@@ -17,6 +17,9 @@ import './common-style/index.scss'
 // element-plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import useUserStore from './store/modules/user'
+// element-plus样式
+import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 const app = createApp(App)
 // pinia插件
