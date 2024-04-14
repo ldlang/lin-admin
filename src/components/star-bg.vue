@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 // 画布尺寸设置
 const windowSize = reactive({
   height: 0,

@@ -32,6 +32,6 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "mock/**/*.ts",],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

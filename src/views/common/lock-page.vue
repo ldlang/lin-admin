@@ -15,7 +15,7 @@ onMounted(()=> {
 })
 
 function getNowTime() {
-  (timer as number) = setInterval(()=> {
+  (timer as number) = window.setInterval(()=> {
     nowTiem.value = dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
   }, 1000)
   return

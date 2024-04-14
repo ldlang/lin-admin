@@ -3,7 +3,7 @@
 import type { ILoginFrom } from '@/api'
 import { loginApi, getUserInfoApi } from '@/api'
 import type { FormInstance, FormRules } from 'element-plus'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { Encrypt } from '@/utils'
 import useUserStore from '@/store/modules/user'
 const store = useUserStore()

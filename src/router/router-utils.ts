@@ -1,6 +1,6 @@
-import { IMenuList, IMenuItem } from '@/api'
+import { IMenuList } from '@/api'
 import type { Router } from 'vue-router'
-import { isEmpty, cloneDeep, isString } from 'lodash'
+import { isEmpty, cloneDeep, isString } from 'lodash-es'
 
 const modules = import.meta.glob(['/**/**/**/*.vue'])
 

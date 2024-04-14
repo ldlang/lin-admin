@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useCommonStore from '@/store/modules/common'
-import { isEmpty } from 'lodash'
+import { isEmpty } from 'lodash-es'
 import type { TabsPaneContext, TabPaneName } from 'element-plus'
 import { onClickOutside } from '@vueuse/core'
 const { tagList, activeTag } = toRefs(useCommonStore())

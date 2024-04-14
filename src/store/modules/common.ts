@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { isEmpty } from 'lodash'
+import { isEmpty } from 'lodash-es'
 import type { ICommonState, ITagList, ITagItem } from '@/store/modules/module-type/common-type'
 
 const commonStore = defineStore('commonStore', {
