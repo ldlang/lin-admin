@@ -19,7 +19,12 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import useUserStore from './store/modules/user'
 // element-plus样式
 import 'element-plus/dist/index.css'
-import 'element-plus/theme-chalk/dark/css-vars.css'
+
+// 打包后启动mock
+import { setupProdMockServer } from '../mock/index.ts'
+if (import.meta.env.PROD) {
+  setupProdMockServer()
+}
 
 const app = createApp(App)
 // pinia插件

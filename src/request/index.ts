@@ -4,7 +4,7 @@ import requestInterceptor from './request-interceptor' // 请求拦截器
 import responseInterceptor from './response-interceptor' // 响应拦截器
 
 const instance :AxiosInstance = axios.create({
-  baseURL: 'http://localhost',
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
   timeout: 60000,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'

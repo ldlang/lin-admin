@@ -8,6 +8,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' // 引�
 import { visualizer } from 'rollup-plugin-visualizer' // 引入打包体积分析的包
 // 压缩打包文件体积的包，要配合nginx配置静态资源代理才有用
 import { compression } from 'vite-plugin-compression2'
+import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 
 export default defineConfig({
@@ -38,14 +39,29 @@ export default defineConfig({
       // element-plus组件自动导入
       resolvers: [ElementPlusResolver()]
     }),
+    // 打包产物分析
     visualizer({
       open: false,
       filename: 'visualizer.html' // 分析图生成的文件名
     }),
+    // 打包压缩
     compression({
       threshold: 2000, // 设置只有超过 2k 的文件才执行压缩
       deleteOriginalAssets: false, // 设置是否删除原文件
       skipIfLargerOrEqual: true // 如果压缩后的文件大小与原文件大小一致或者更大时，不进行压缩
+    }),
+    viteMockServe({
+      mockPath: './mock/', // 指向mock下的文件
+      ignore: /^\_/, // 忽略下划线开头的文件
+      watchFiles: true, // 监听文件内容变更
+      localEnabled: true,
+      prodEnabled: true,
+      logger: true,
+      injectCode: `
+        import { setupProdMockServer } from './mock/index';
+        setupProdMockServer();
+      `,
+      injectFile: resolve('src/main.ts')
     })
   ],
   css: {
