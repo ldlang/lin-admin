@@ -35,11 +35,13 @@ const onSubmitLoginClick = async()=> {
         store.token = res?.data?.token
         // 获取用户信息
         const result = await getUserInfoApi()
-        store.userInfo = result?.data
-        ElMessage.success('登录成功！')
-        // 动态添加路由
-        store.addMenuRoutes()
-        router.replace('/')
+        if (result.code === 200) {
+          store.userInfo = result?.data
+          ElMessage.success('登录成功！')
+          // 动态添加路由
+          store.addMenuRoutes()
+          router.replace('/')
+        }
       } catch (error: any) {
         console.error(error)
       }
