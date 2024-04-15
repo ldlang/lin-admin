@@ -34,6 +34,8 @@
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "@unocss/preset-rem-to-px": "^0.58.8",
+    "@unocss/transformer-directives": "^0.59.2",
+    "@unocss/transformer-variant-group": "^0.59.2",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.24.0",
