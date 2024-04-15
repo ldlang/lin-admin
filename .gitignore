@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # 忽略自动导入产生的声明文件
-/src/declare-auto/*
+# /src/declare-auto/*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
