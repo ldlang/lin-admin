@@ -12,6 +12,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/lin-admin/',
   plugins: [
     vue(),
     // eslint插件
