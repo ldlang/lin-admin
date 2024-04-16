@@ -1,6 +1,7 @@
 import type { AxiosResponse, AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/modules/user'
+import router from '@/router'
 const store = useUserStore()
 
 const requestInterceptor = {
@@ -9,25 +10,29 @@ const requestInterceptor = {
    */
   success: (response: AxiosResponse)=> {
     const data = response?.data || {}
+    errCodeHandler(data)
     return Promise.resolve(data)
   },
   /**
    * 请求失败
    */
   fail: (error: AxiosError<IResult<string>>)=> {
-    const router = useRouter()
     const data = error?.response?.data
-    // 500 错误码处理
-    if (data?.code === 500) {
-      ElMessage.error(data?.msg)
-    }
-    // 401 错误码处理
-    if (data?.code === 401) {
-      ElMessage.error(data?.msg)
-      router.push('/login')
-      store.token = ''
-    }
+    errCodeHandler(data)
     return Promise.reject(data)
+  }
+}
+
+function errCodeHandler(data: IResult<string> | undefined) {
+  // 500 错误码处理
+  if (data?.code === 500) {
+    ElMessage.error(data?.msg)
+  }
+  // 403 错误码处理
+  if (data?.code === 403) {
+    router.push('/login')
+    store.token = ''
+    ElMessage.error(data?.msg)
   }
 }
 
