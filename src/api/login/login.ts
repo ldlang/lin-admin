@@ -2,8 +2,8 @@ import request from '@/request'
 import type { ILoginFrom, ILoginResult, IUserInfo } from './type'
 
 const enum apiPath {
-  Login = '/lin-admin/users/login',
-  UserInfo = '/lin-admin/users/user-info'
+  Login = '/users/login',
+  UserInfo = '/users/user-info'
 }
 
 // 登录
