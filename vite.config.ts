@@ -57,12 +57,7 @@ export default defineConfig({
       watchFiles: true, // 监听文件内容变更
       localEnabled: true,
       prodEnabled: true,
-      logger: true,
-      // injectCode: `
-      //   import { setupProdMockServer } from '../mock/index';
-      //   setupProdMockServer('vite');
-      // `,
-      // injectFile: resolve('src/main.ts')
+      logger: true
     })
   ],
   css: {

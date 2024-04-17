@@ -23,7 +23,7 @@ import 'element-plus/dist/index.css'
 // 打包后启动mock
 import { setupProdMockServer } from '../mock/index'
 if (import.meta.env.PROD) {
-  setupProdMockServer('main')
+  setupProdMockServer()
 }
 
 const app = createApp(App)

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// todo 必填字段未填时，失去焦点控制台会报警告
 import type { ILoginFrom } from '@/api'
 import { loginApi, getUserInfoApi } from '@/api'
 import type { FormInstance, FormRules } from 'element-plus'
@@ -31,13 +30,10 @@ const onSubmitLoginClick = async()=> {
         const loginFormParams = cloneDeep(loginForm)
         loginFormParams.password = Encrypt(loginForm.password)
         // 登录
-        console.log('执行到此')
         const res = await loginApi(loginFormParams)
-        console.log('res', res)
         store.token = res?.data?.token
         // 获取用户信息
         const result = await getUserInfoApi()
-        console.log('result', result)
         if (result.code === 200) {
           store.userInfo = result?.data
           ElMessage.success('登录成功！')
