@@ -52,7 +52,7 @@ export default defineConfig({
       skipIfLargerOrEqual: true // 如果压缩后的文件大小与原文件大小一致或者更大时，不进行压缩
     }),
     viteMockServe({
-      mockPath: './mock/', // 指向mock下的文件
+      mockPath: 'mock', // 指向mock下的文件
       ignore: /^\_/, // 忽略下划线开头的文件
       watchFiles: true, // 监听文件内容变更
       localEnabled: true,
