@@ -58,11 +58,11 @@ export default defineConfig({
       localEnabled: true,
       prodEnabled: true,
       logger: true,
-      injectCode: `
-        import { setupProdMockServer } from '../mock/index';
-        setupProdMockServer('vite');
-      `,
-      injectFile: resolve('src/main.ts')
+      // injectCode: `
+      //   import { setupProdMockServer } from '../mock/index';
+      //   setupProdMockServer('vite');
+      // `,
+      // injectFile: resolve('src/main.ts')
     })
   ],
   css: {
