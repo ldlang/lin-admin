@@ -59,8 +59,8 @@ export default defineConfig({
       prodEnabled: true,
       logger: true,
       injectCode: `
-        import { setupProdMockServer } from '~/mock/index';
-        setupProdMockServer();
+        import { setupProdMockServer } from '../mock/index';
+        setupProdMockServer('vite');
       `,
       injectFile: resolve('src/main.ts')
     })
