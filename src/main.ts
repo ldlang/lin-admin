@@ -21,7 +21,7 @@ import useUserStore from './store/modules/user'
 import 'element-plus/dist/index.css'
 
 // 打包后启动mock
-import { setupProdMockServer } from '../mock/index.ts'
+import { setupProdMockServer } from '~/mock/index.ts'
 if (import.meta.env.PROD) {
   setupProdMockServer()
 }
