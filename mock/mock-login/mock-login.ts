@@ -1,7 +1,7 @@
 import { MockMethod } from 'vite-plugin-mock'
 export default [
   {
-    url: '/lin-admin/users/login',
+    url: '/users/login',
     method: 'post',
     response: ()=> {
       return {
@@ -13,7 +13,7 @@ export default [
     }
   },
   {
-    url: '/lin-admin/users/user-info',
+    url: '/users/user-info',
     method: 'get',
     response: (res:any)=> {
       if (res.headers.authorization === 'Bearer true') {
