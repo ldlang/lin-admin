@@ -2,7 +2,6 @@ import type { AxiosResponse, AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/modules/user'
 import router from '@/router'
-const store = useUserStore()
 
 const requestInterceptor = {
   /**
@@ -24,6 +23,7 @@ const requestInterceptor = {
 }
 
 function errCodeHandler(data: IResult<string> | undefined) {
+  const store = useUserStore()
   // 500 错误码处理
   if (data?.code === 500) {
     ElMessage.error(data?.msg)

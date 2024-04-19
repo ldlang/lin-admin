@@ -1,5 +1,5 @@
 import request from '@/request'
-import type { ILoginFrom, ILoginResult, IUserInfo } from './type'
+import type { ILoginFrom, ILoginResult, IUserInfo } from '@/api'
 
 const enum apiPath {
   Login = '/users/login',
