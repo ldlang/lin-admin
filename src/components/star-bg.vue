@@ -17,8 +17,8 @@ const windowSize = reactive({
 onMounted(()=> {
   // 监听可视窗口尺寸变化
   window.addEventListener('resize', changeSize)
-  windowSize.height = window.innerHeight
-  windowSize.width = window.innerWidth
+  windowSize.height = window.innerHeight || document.documentElement.clientHeight
+  windowSize.width = window.innerWidth || document.documentElement.clientWidth
   getCtx()
 })
 

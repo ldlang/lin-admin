@@ -65,7 +65,7 @@ export default defineConfig({
       // scss配置
       scss: {
         javascriptEnabled: true,
-        additionalData: '@import "./src/common-style/color.scss"; @import "./src/common-style/size.scss";'
+        additionalData: '@use "./src/common-style/color.scss" as *; @use "./src/common-style/size.scss" as *;'
       }
     }
   },

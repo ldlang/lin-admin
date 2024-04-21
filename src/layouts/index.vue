@@ -4,21 +4,22 @@ import topBar from './top-bar/index.vue'
 import tag from './tag/tag.vue'
 import useCommonStore from '@/store/modules/common'
 const { isCollapse } = toRefs(useCommonStore())
-
 </script>
 
 <template>
   <el-container class="layout-container">
-    <el-aside class="h-screen" :class="{ 'aside-collapse': isCollapse }">
+    <el-aside class="h-screen fixed left-0 top-0 z-10" :class="{ 'aside-collapse': isCollapse }">
       <aside-menu />
     </el-aside>
+    <div class="aside-placeholder" :class="{'aside-placeholder-collapse': isCollapse}" />
     <el-container>
-      <el-header>
+      <el-header class="fixed top-0 right-0 z-10" :class="{'header-collapse': isCollapse}">
         <top-bar />
         <tag />
       </el-header>
-      <el-main>
-        <div class="w-full h-full">
+      <div class="header-placeholder" />
+      <el-scrollbar class="main-scrollbar">
+        <el-main class="w-full h-full">
           <router-view>
             <template #default="{ Component, route }">
               <transition name="fade" mode="out-in">
@@ -29,31 +30,43 @@ const { isCollapse } = toRefs(useCommonStore())
               </transition>
             </template>
           </router-view>
-        </div>
-      </el-main>
+        </el-main>
+      </el-scrollbar>
     </el-container>
   </el-container>
 </template>
 
 <style lang="scss" scoped>
-.el-aside {
+.el-aside, .aside-placeholder {
   transition: all 0.3s;
   width: $menu-width;
 }
-.aside-collapse{
+.aside-collapse, .aside-placeholder-collapse{
   width: $menu-collapse-width;
 }
 
-.el-header {
+.el-header, .header-placeholder {
+  transition: all 0.3s;
   padding: 0;
   height: calc(#{$top-bar-height} + #{$top-tag-height});
+  width: calc(100% - #{$menu-width});
+}
+
+.header-collapse{
+  transition: all 0.3s;
+  width: calc(100% - #{$menu-collapse-width});
+}
+.main-scrollbar{
+  height: calc(100vh - #{$top-bar-height} - #{$top-tag-height});
+  ::v-deep(.el-scrollbar__wrap){
+    .el-scrollbar__view{
+      height: 100%;
+    }
+  }
 }
 
 .el-main {
   background-color: $main-bg;
-  div {
-    background-color: $bg-fff;
-  }
 }
 
 // 路由切换动画
