@@ -11,7 +11,7 @@ const { isCollapse } = toRefs(useCommonStore())
     <el-aside class="h-screen fixed left-0 top-0 z-10" :class="{ 'aside-collapse': isCollapse }">
       <aside-menu />
     </el-aside>
-    <div class="aside-placeholder" :class="{'aside-placeholder-collapse': isCollapse}" />
+    <div class="aside-placeholder shrink-0" :class="{'aside-placeholder-collapse': isCollapse}" />
     <el-container>
       <el-header class="fixed top-0 right-0 z-10" :class="{'header-collapse': isCollapse}">
         <top-bar />
@@ -45,11 +45,15 @@ const { isCollapse } = toRefs(useCommonStore())
   width: $menu-collapse-width;
 }
 
-.el-header, .header-placeholder {
+.el-header {
   transition: all 0.3s;
   padding: 0;
   height: calc(#{$top-bar-height} + #{$top-tag-height});
   width: calc(100% - #{$menu-width});
+}
+.header-placeholder{
+  height: calc(#{$top-bar-height} + #{$top-tag-height});
+  width: 100%;
 }
 
 .header-collapse{
