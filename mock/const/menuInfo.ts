@@ -48,5 +48,27 @@ export const menuAllList = [
         ]
       }
     ]
+  },
+  {
+    name: 'functionalZone',
+    path: '/functional-zone',
+    iconColor: '#7624E2',
+    icon: 'More',
+    meta: {
+      title: '功能区'
+    },
+    children: [
+      {
+        name: 'tinymce',
+        path: '/rich-text/tinymce',
+        component: 'views/functional-zone/tinymce',
+        iconColor: '#C818E5',
+        icon: 'House',
+        meta: {
+          title: '富文本'
+        },
+        children: []
+      }
+    ]
   }
 ]
