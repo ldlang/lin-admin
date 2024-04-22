@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import router from '@/router'
-import { getMeunsApi, type IUserInfo, IMenuList } from '@/api'
+import { getMenusApi, type IUserInfo, IMenuList } from '@/api'
 import type { IUserState } from '@/store/modules/module-type/user-type'
 import useCommonStore from './common'
 
@@ -16,7 +16,7 @@ const userStore = defineStore('userStore', {
     async addMenuRoutes() {
       const params = { account: this.userInfo.account }
       try {
-        const { data } = await getMeunsApi(params)
+        const { data } = await getMenusApi(params)
         this.menuList = data
       } catch (e) {
         console.error(e)

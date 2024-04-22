@@ -6,7 +6,7 @@ const enum apiPath {
 }
 
 // 登录
-export const getMeunsApi = (params: Pick<IUserInfo, 'account'>): Promise<IResult<IMenuList>>=> {
+export function getMenusApi(params: Pick<IUserInfo, 'account'>): Promise<IResult<IMenuList>> {
   return request({
     url: apiPath.menus,
     method: 'get',

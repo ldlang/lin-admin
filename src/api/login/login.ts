@@ -7,7 +7,7 @@ const enum apiPath {
 }
 
 // 登录
-export const loginApi = (data: ILoginFrom): Promise<IResult<ILoginResult>>=> {
+export function loginApi(data: ILoginFrom): Promise<IResult<ILoginResult>> {
   return request({
     url: apiPath.Login,
     method: 'post',
@@ -16,7 +16,7 @@ export const loginApi = (data: ILoginFrom): Promise<IResult<ILoginResult>>=> {
 }
 
 // 获取用户信息
-export const getUserInfoApi = (): Promise<IResult<IUserInfo>>=> {
+export function getUserInfoApi(): Promise<IResult<IUserInfo>> {
   return request({
     url: apiPath.UserInfo,
     method: 'get'
