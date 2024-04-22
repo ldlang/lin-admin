@@ -1,10 +1,10 @@
-import { createRouter, createMemoryHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { commonRoutes } from './routes/common-routes'
 import { layoutRoutes } from './routes/layout-routes'
 import { RouterUtils } from './router-utils'
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHashHistory(),
   routes: [...commonRoutes, ...layoutRoutes]
 })
 

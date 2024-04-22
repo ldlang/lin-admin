@@ -30,7 +30,7 @@ const app = createApp(App)
 // pinia插件
 app.use(pinia)
 // 添加动态路由,必须在pinia注册只后，和router注册之前
-useUserStore().addMenuRoutes()
+await useUserStore().addMenuRoutes()
 // vue-router插件
 app.use(router)
 

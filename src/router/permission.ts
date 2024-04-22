@@ -19,7 +19,7 @@ router.beforeEach((to, from, next)=> {
     } else if (to.path === '/login') {
       next(from.fullPath)
     } else {
-      // 如果没有明确设为false的路由怎加到tag上
+      // 如果没有明确设为false的路由增加到tag上
       if (to.meta.tag != false) {
         addTagList.value({
           title: to.meta.title as string,
