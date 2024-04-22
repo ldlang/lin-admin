@@ -29,14 +29,15 @@ if (import.meta.env.PROD) {
 const app = createApp(App)
 // pinia插件
 app.use(pinia)
-// 添加动态路由,必须在pinia注册只后，和router注册之前
-await useUserStore().addMenuRoutes()
-// vue-router插件
-app.use(router)
-
 // element-plus图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+// 添加动态路由,必须在pinia注册只后，和router注册之前
+(async function() {
+  await useUserStore().addMenuRoutes()
+  // vue-router插件
+  app.use(router)
+  app.mount('#app')
+})()
 
-app.mount('#app')
