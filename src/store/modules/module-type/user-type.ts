@@ -1,7 +1,12 @@
 import type { IUserInfo, IMenuList } from '@/api'
 
 export interface IUserState {
+  /** token */
   token: string
-  userInfo: IUserInfo,
+  /** 用户信息 */
+  userInfo: IUserInfo
+  /** 路由列表 */
   menuList: IMenuList
+  /** 动态路由是否添加 */
+  routeIsLoad: boolean
 }

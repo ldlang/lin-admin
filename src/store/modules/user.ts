@@ -9,7 +9,8 @@ const userStore = defineStore('userStore', {
     return {
       token: '',
       userInfo: {} as IUserInfo,
-      menuList: [] as IMenuList
+      menuList: [] as IMenuList,
+      routeIsLoad: false
     }
   },
   actions: {
@@ -24,14 +25,12 @@ const userStore = defineStore('userStore', {
       router.routerUtils.formatRoutes(this.menuList)
     },
     logout() {
-      this.token = ''
-      this.userInfo = {} as IUserInfo
-      this.menuList = []
-      const { isLock, lockPasswd, lockPath } = toRefs(useCommonStore())
-      isLock.value = false
-      lockPasswd.value = ''
-      lockPath.value = ''
+      this.$reset()
+      useCommonStore().$reset()
     }
+  },
+  persist: {
+    paths: ['token', 'userInfo', 'menuList']
   }
 })
 

@@ -16,7 +16,6 @@ import 'normalize.css/normalize.css'
 import './common-style/index.scss'
 // element-plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import useUserStore from './store/modules/user'
 // element-plus样式
 import 'element-plus/dist/index.css'
 
@@ -33,11 +32,6 @@ app.use(pinia)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-// 添加动态路由,必须在pinia注册只后，和router注册之前
-(async function() {
-  await useUserStore().addMenuRoutes()
-  // vue-router插件
-  app.use(router)
-  app.mount('#app')
-})()
+app.use(router)
+app.mount('#app')
 

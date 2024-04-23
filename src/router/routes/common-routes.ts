@@ -48,6 +48,6 @@ export const commonRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/404'
+    component: ()=> import('@/views/common/404.vue')
   }
 ]
