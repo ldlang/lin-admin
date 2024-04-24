@@ -14,7 +14,7 @@ export default [
             account: 'super',
             password: 'd4IQt0MKAcI2nvpUGTSVOw==',
             name: '林达浪',
-            avatar: 'https://ldlang.github.io/lin-note/avatar.jpg',
+            avatar: '/lin-admin/image/avatar.jpg',
             email: '1',
             phone: 'mY5kOFKKMTlSya9V8UzkiA==',
             birthday: null,
