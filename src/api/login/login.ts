@@ -1,5 +1,5 @@
 import request from '@/request'
-import type { ILoginFrom, ILoginResult, IUserInfo } from '@/api'
+import type { ILoginFromPassword, ILoginFromCaptcha, ILoginResult, IUserInfo } from '@/api'
 
 const enum apiPath {
   Login = '/users/login',
@@ -7,7 +7,7 @@ const enum apiPath {
 }
 
 // 登录
-export function loginApi(data: ILoginFrom): Promise<IResult<ILoginResult>> {
+export function loginApi(data: ILoginFromPassword | ILoginFromCaptcha): Promise<IResult<ILoginResult>> {
   return request({
     url: apiPath.Login,
     method: 'post',

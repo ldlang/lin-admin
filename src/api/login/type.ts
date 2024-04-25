@@ -1,6 +1,13 @@
-export interface ILoginFrom {
+/** 密码登录表单 */
+export interface ILoginFromPassword {
   account: string;
   password: string;
+}
+
+/** 验证码登录表单 */
+export interface ILoginFromCaptcha {
+  phone: string;
+  captcha: string;
 }
 
 export interface ILoginResult {
