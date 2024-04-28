@@ -53,7 +53,6 @@ export default defineConfig({
     }),
     viteMockServe({
       mockPath: 'mock', // 指向mock下的文件
-      ignore: /^\_/, // 忽略下划线开头的文件
       watchFiles: true, // 监听文件内容变更
       localEnabled: true,
       prodEnabled: true,

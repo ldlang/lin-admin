@@ -93,14 +93,14 @@ const onSubmitLoginClick = async()=> {
           <!-- 账号密码登录 -->
           <template v-if="tabSelect === tabFormEnum.password">
             <component
-              :is="loginFromEnum[tabSelect as tabFormEnum].component"
-              v-model:loginForm="(loginForm as ILoginFromPassword)" />
+              :is="(loginFromEnum[tabSelect as tabFormEnum].component as any)"
+              v-model:loginForm="loginForm" />
           </template>
           <!-- 短信验证码登录 -->
           <template v-if="tabSelect === tabFormEnum.sms">
             <component
-              :is="loginFromEnum[tabSelect as tabFormEnum].component"
-              v-model:loginForm="(loginForm as ILoginFromCaptcha)"
+              :is="(loginFromEnum[tabSelect as tabFormEnum].component as any)"
+              v-model:loginForm="loginForm"
               v-model:isSendCode="isSendCode" />
           </template>
         </div>
