@@ -10,8 +10,6 @@ const { token, userInfo } = storeToRefs(useUserStore())
 const router = useRouter()
 const { tabSelect, loginTabs, loginFromEnum } = loginFormHooks()
 
-// 密码是否可见
-const isHide = ref(true)
 /**
  * 登录表单
  */
@@ -41,8 +39,6 @@ const onSubmitLoginClick = async()=> {
           loginFormParams.value.phone = Encrypt(loginFormParams.value.phone)
         }
         // 登录
-        console.log('loginFormParams', loginFormParams)
-
         const res = await loginApi(loginFormParams!.value)
         token.value = res?.data?.token
         // 获取用户信息
@@ -81,9 +77,17 @@ const onSubmitLoginClick = async()=> {
         :rules="rules"
         label-width="60px"
         hide-required-asterisk>
-
-        <component :is="loginFromEnum[tabSelect as tabFormEnum].component"
-          v-model:loginForm="loginForm" />
+        <!-- 因为loginForm的类型必须要确定，所以这里只用能使用判断的方式 -->
+        <template v-if="tabSelect === tabFormEnum.password">
+          <component
+            :is="loginFromEnum[tabSelect as tabFormEnum].component"
+            v-model:loginForm="(loginForm as ILoginFromPassword)" />
+        </template>
+        <template v-if="tabSelect === tabFormEnum.sms">
+          <component
+            :is="loginFromEnum[tabSelect as tabFormEnum].component"
+            v-model:loginForm="(loginForm as ILoginFromCaptcha)" />
+        </template>
         <!-- 登录按钮 -->
         <el-button type="primary" class="w-full" @click="onSubmitLoginClick">登录</el-button>
       </el-form>
