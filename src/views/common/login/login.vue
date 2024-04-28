@@ -19,6 +19,11 @@ const loginForm = ref<ILoginFromPassword | ILoginFromCaptcha>(loginFromEnum[tabF
  */
 const rules = ref<FormRules<ILoginFromPassword | ILoginFromCaptcha>>(loginFromEnum[tabFormEnum.password].rules)
 
+// 是否发送了验证码
+const isSendCode = ref(false)
+
+const confirmLoading = ref(false)
+
 function tabSelectClick(tab: TabsPaneContext) {
   loginForm.value = loginFromEnum[tab.props.name as tabFormEnum].form
   rules.value = loginFromEnum[tab.props.name as tabFormEnum].rules
@@ -27,8 +32,13 @@ function tabSelectClick(tab: TabsPaneContext) {
 // 登录按钮
 const loginFormRef = ref<FormInstance>()
 const onSubmitLoginClick = async()=> {
+  if (tabSelect.value === tabFormEnum.sms && !isSendCode.value) {
+    ElMessage.warning('请发送验证码！')
+    return
+  }
   await loginFormRef.value?.validate(async valid=> {
     if (valid) {
+      confirmLoading.value = true
       try {
         let loginFormParams: Ref<ILoginFromPassword> | Ref<ILoginFromCaptcha>
         if (tabSelect.value === tabFormEnum.password) {
@@ -47,8 +57,10 @@ const onSubmitLoginClick = async()=> {
           userInfo.value = result?.data
           ElMessage.success('登录成功！')
           router.replace('/')
+          confirmLoading.value = false
         }
       } catch (error: any) {
+        confirmLoading.value = false
         console.error(error)
       }
     } else {
@@ -77,19 +89,29 @@ const onSubmitLoginClick = async()=> {
         :rules="rules"
         label-width="60px"
         hide-required-asterisk>
-        <!-- 因为loginForm的类型必须要确定，所以这里只用能使用判断的方式 -->
-        <template v-if="tabSelect === tabFormEnum.password">
-          <component
-            :is="loginFromEnum[tabSelect as tabFormEnum].component"
-            v-model:loginForm="(loginForm as ILoginFromPassword)" />
-        </template>
-        <template v-if="tabSelect === tabFormEnum.sms">
-          <component
-            :is="loginFromEnum[tabSelect as tabFormEnum].component"
-            v-model:loginForm="(loginForm as ILoginFromCaptcha)" />
-        </template>
+        <div class="h-100">
+          <!-- 账号密码登录 -->
+          <template v-if="tabSelect === tabFormEnum.password">
+            <component
+              :is="loginFromEnum[tabSelect as tabFormEnum].component"
+              v-model:loginForm="(loginForm as ILoginFromPassword)" />
+          </template>
+          <!-- 短信验证码登录 -->
+          <template v-if="tabSelect === tabFormEnum.sms">
+            <component
+              :is="loginFromEnum[tabSelect as tabFormEnum].component"
+              v-model:loginForm="(loginForm as ILoginFromCaptcha)"
+              v-model:isSendCode="isSendCode" />
+          </template>
+        </div>
         <!-- 登录按钮 -->
-        <el-button type="primary" class="w-full" @click="onSubmitLoginClick">登录</el-button>
+        <el-button
+          type="primary"
+          class="w-full"
+          :loading="confirmLoading"
+          @click="onSubmitLoginClick">
+          登录
+        </el-button>
       </el-form>
     </el-card>
   </div>

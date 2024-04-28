@@ -71,8 +71,14 @@ export const loginFormHooks: TLoginFormHooks = ()=> {
         captcha: ''
       },
       rules: {
-        phone: [{ required: true, message: '请输入手机号', trigger: 'blur' }],
-        captcha: [{ required: true, message: '请输入验证码', trigger: 'blur' }]
+        phone: [
+          { required: true, message: '请输入手机号', trigger: 'blur' },
+          { min: 11, max: 11, message: '手机号为11位', trigger: 'blur' }
+        ],
+        captcha: [
+          { required: true, message: '请输入验证码', trigger: 'blur' },
+          { min: 6, max: 6, message: '验证码为6位', trigger: 'blur' }
+        ]
       },
       // 组件被包裹响应式值，需要用markRaw包裹，因为太消耗性能
       component: markRaw(loginCaptcha)
