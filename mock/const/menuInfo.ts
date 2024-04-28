@@ -2,7 +2,7 @@ export const menuAllList = [
   {
     name: 'crud',
     path: '/crud',
-    component: 'views/crud',
+    component: 'views/crud/crud',
     icon: 'House',
     iconColor: '#CB56F2',
     meta: {

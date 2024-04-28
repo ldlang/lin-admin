@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { getListApi, type ICrudList, ICrudApiParams } from '@/api'
+const headerSearch = defineAsyncComponent(()=> import('./header-search.vue'))
 
 const tableData = ref<ICrudList>([])
 const getParams = reactive({
@@ -30,6 +31,7 @@ function editClick() {
 </script>
 
 <template>
+  <header-search />
   <el-table :data="tableData" style="width: 100%">
     <el-table-column fixed type="selection" width="30" />
     <el-table-column prop="id" label="ID" width="80" />
@@ -41,8 +43,8 @@ function editClick() {
     <el-table-column prop="address" label="地址" />
     <el-table-column fixed="right" label="操作" width="150">
       <template #default>
-        <el-button type="primary" size="small" @click="editClick">编辑</el-button>
-        <el-button type="danger" size="small" @click="deleteClick"> 删除</el-button>
+        <el-button link type="primary" size="small" @click="editClick">编辑</el-button>
+        <el-button link type="danger" size="small" @click="deleteClick"> 删除</el-button>
       </template>
     </el-table-column>
   </el-table>

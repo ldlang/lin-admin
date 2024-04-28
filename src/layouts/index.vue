@@ -23,10 +23,12 @@ const { isCollapse } = toRefs(useCommonStore())
           <router-view>
             <template #default="{ Component, route }">
               <transition name="fade" mode="out-in">
-                <keep-alive v-if="route.meta?.keepAlive">
-                  <component :is="Component" :key="route.path" />
-                </keep-alive>
-                <component v-else :is="Component" :key="route.path" />
+                <div v-if="Component">
+                  <keep-alive v-if="route.meta?.keepAlive">
+                    <component :is="Component" :key="route.path" />
+                  </keep-alive>
+                  <component v-else :is="Component" :key="route.path" />
+                </div>
               </transition>
             </template>
           </router-view>
