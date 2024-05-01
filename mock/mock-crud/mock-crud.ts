@@ -6,12 +6,19 @@ export default [
     url: '/crud/getList',
     method: 'get',
     response: ({ query })=> {
+      let records = crudData
+      if (query.name) {
+        records = crudData.filter(item=> item.name.includes(query.name))
+      }
+      if (query.phone) {
+        records = crudData.filter(item=> item.phone.includes(query.phone))
+      }
       return {
         code: 200,
         data: {
-          total: 20,
-          records: crudData.slice((query.page - 1) * query.size, query.size),
-          leave: 20 - (query.size * query.page)
+          total: records.length,
+          records: records.slice((query.page - 1) * query.size, query.size * query.page),
+          leave: records.length - (query.size * query.page)
         }
       }
     }

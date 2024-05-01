@@ -6,3 +6,5 @@ declare module '*.vue' {
     export default component
 }
 
+// element-plus 中文语言包
+declare module 'element-plus/dist/locale/zh-cn.mjs'

@@ -14,7 +14,6 @@ export type ICrudList = ICrudItem[];
 export interface ICrudApiParams {
   page: number;
   size: number;
-  [prop: string]: any;
 }
 
 export interface ICrudApiResult {
