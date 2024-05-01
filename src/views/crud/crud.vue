@@ -2,8 +2,13 @@
 import { getListApi, type ICrudList, ICrudApiParams } from '@/api'
 import type { ISearchForm } from './type'
 import { isEmpty } from 'lodash-es'
+import { ElTable } from 'element-plus'
 const headerSearch = defineAsyncComponent(()=> import('./header-search.vue'))
 const bottomPage = defineAsyncComponent(()=> import('./bottom-page.vue'))
+
+const tableRef = ref<InstanceType<typeof ElTable> | null>(null)
+const pageRef = ref<InstanceType<typeof bottomPage> | null>(null)
+const tableHeight = ref<number | string>('auto')
 
 // 表格数据
 const tableData = ref<ICrudList>([])
@@ -17,8 +22,11 @@ const getParams = reactive({
   size: 10
 })
 
-onMounted(()=> {
-  getTableData(getParams)
+onMounted(async()=> {
+  await getTableData(getParams)
+  setTimeout(()=> {
+    computedTableHeight()
+  }, 200)
 })
 
 // 获取列表数据
@@ -60,6 +68,13 @@ function pageChange() {
   getTableData(getParams)
 }
 
+// 计算表格高度
+function computedTableHeight() {
+  const tableRefTop = tableRef.value?.$el.getBoundingClientRect().top
+  const pageRefHetight = pageRef.value?.$el.getBoundingClientRect().height as number
+  const height = document.documentElement.clientHeight - tableRefTop - pageRefHetight - 20 - 10
+  tableHeight.value = height
+}
 function deleteClick() {
   console.log('deleteClick')
 }
@@ -75,7 +90,9 @@ function editClick() {
   <el-table
     :data="tableData"
     v-loading="tableLoading"
-    class="w-full rd-5">
+    class="w-full rd-5"
+    ref="tableRef"
+    :height="tableHeight">
     <el-table-column fixed type="selection" width="30" />
     <el-table-column prop="id" label="ID" width="80" />
     <el-table-column prop="name" label="姓名" width="120" />
@@ -92,12 +109,11 @@ function editClick() {
     </el-table-column>
   </el-table>
   <!-- 分页 -->
-  <div class="mt-10 bg-white py-5 rd-5">
-    <bottom-page
-      v-model:currentPage="getParams.page"
-      v-model:pageSize="getParams.size"
-      :total="total"
-      @pageChange="pageChange" />
-  </div>
-
+  <bottom-page
+    ref="pageRef"
+    class="mt-10 bg-white py-5 rd-5"
+    v-model:currentPage="getParams.page"
+    v-model:pageSize="getParams.size"
+    :total="total"
+    @pageChange="pageChange" />
 </template>
