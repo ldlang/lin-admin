@@ -59,18 +59,18 @@ export default defineConfig({
       logger: true
     })
   ],
-  // build: {
-  //   chunkSizeWarningLimit: 1000,
-  //   rollupOptions: {
-  //     output: {
-  //       manualChunks: {
-  //         'lodash': ['lodash-es'],
-  //         'element-plus': ['element-plus'],
-  //         'crypto-js': ['crypto-js']
-  //       }
-  //     }
-  //   }
-  // },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'lodash': ['lodash-es'],
+          'element-plus': ['element-plus'],
+          'crypto-js': ['crypto-js']
+        }
+      }
+    }
+  },
   css: {
     preprocessorOptions: {
       // scss配置
