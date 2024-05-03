@@ -1,1 +1,0 @@
-import{ch as s,K as r,f as a,az as c,ad as m}from"./index-dFPmeL4W.js";const t={prefix:Math.floor(Math.random()*1e4),current:0},f=Symbol("elIdInjection"),I=()=>c()?m(f,t):t,u=n=>{const e=I(),o=s();return r(()=>a(n)||`${o.value}-id-${e.prefix}-${e.current++}`)},l=Symbol("formContextKey"),p=Symbol("formItemContextKey");export{I as a,l as b,p as f,u};

@@ -1,0 +1,1 @@
+import{d as o,o as n,K as s,N as c}from"./element-plus-DBjmp5RF.js";const t={class:"w-20 h20 mx-10 flex items-center hand hover:scale-130"},_=o({__name:"refresh",setup(a){function e(){window.location.reload()}return(r,i)=>(n(),s("div",t,[c("i",{class:"iconfont icon-shuaxin text-20",onClick:e})]))}});export{_};

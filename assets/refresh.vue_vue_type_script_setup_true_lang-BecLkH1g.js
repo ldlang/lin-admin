@@ -1,1 +1,0 @@
-import{b as o,o as n,c,j as s}from"./index-dFPmeL4W.js";const t={class:"w-20 h20 mx-10 flex items-center hand hover:scale-130"},_=o({__name:"refresh",setup(a){function e(){window.location.reload()}return(r,i)=>(n(),c("div",t,[s("i",{class:"iconfont icon-shuaxin text-20",onClick:e})]))}});export{_};
