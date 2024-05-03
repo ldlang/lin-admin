@@ -2,6 +2,10 @@
 import { FormInstance } from 'element-plus'
 import type { ISearchForm } from './type'
 
+defineProps<{
+  tableLoading: boolean
+}>()
+
 // 抛出的事件
 const emit = defineEmits<{
   submitClick: [searchForm: ISearchForm],
@@ -49,8 +53,8 @@ const resetSearchClick = ()=> {
       <el-input class="!w-200" v-model="searchForm.phone" placeholder="请输入手机号" clearable />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitClick">搜索</el-button>
-      <el-button @click="resetSearchClick">重置</el-button>
+      <el-button type="primary" :loading="tableLoading" @click="submitClick">搜索</el-button>
+      <el-button :loading="tableLoading" @click="resetSearchClick">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
