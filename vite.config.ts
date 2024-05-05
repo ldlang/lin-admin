@@ -10,6 +10,7 @@ import { visualizer } from 'rollup-plugin-visualizer' // 引入打包体积分�
 import { compression } from 'vite-plugin-compression2'
 import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
+import { buildConfig } from './vite-plugin/build'
 
 export default defineConfig({
   base: '/lin-admin/',
@@ -59,18 +60,7 @@ export default defineConfig({
       logger: true
     })
   ],
-  build: {
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'lodash': ['lodash-es'],
-          'element-plus': ['element-plus'],
-          'crypto-js': ['crypto-js']
-        }
-      }
-    }
-  },
+  build: buildConfig(),
   css: {
     preprocessorOptions: {
       // scss配置
