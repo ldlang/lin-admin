@@ -10,7 +10,8 @@ import lock from './lock.vue'
 </script>
 
 <template>
-  <div class="top-bar flex flex-justify-between items-center h-full bg-primary text-white px-20 transition-all-3">
+  <div class="top-bar flex flex-justify-between items-center h-full text-#606266 px-20 transition-all-3
+  b-(b b-solid b-#eee)">
     <div class="flex items-center">
       <collapse />
       <refresh />

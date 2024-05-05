@@ -14,10 +14,11 @@ watch(theme, (val)=> {
 <template>
   <!-- 不能在这个页面直接递归，因为这样就会产生两个el-menu，
   导致深层次的菜单刷新无法默认展开，所以需要在子组件中递归 -->
-  <el-scrollbar height="100vh" class="bg-white menu-scrollbar">
-    <div class="top-title text-white flex justify-center items-center text-25"
+  <el-scrollbar height="100vh" class="b-(r-1 r-solid r-#eee) menu-scrollbar">
+    <div class="top-title text-#606266 flex justify-center items-center text-25"
       :class="{'top-title-collapse': isCollapse}">
-      ldlang
+      <el-avatar :size="26" src="/lin-admin/image/avatar.jpg" class="mr-10" />
+      <span v-show="!isCollapse">ldlang</span>
     </div>
     <el-menu
       :class="{'aside-menu-collapse': isCollapse }"
@@ -69,9 +70,7 @@ watch(theme, (val)=> {
 .top-title{
   height: $top-title-height;
   background: $top-title-bg;
-}
-.top-title-collapse{
-  font-size: 18px;
+  border-bottom: 1px solid $eee;
 }
 
 // 菜单折叠后弹出层样式

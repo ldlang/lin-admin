@@ -69,20 +69,20 @@ function handleSelectClick(item: unknown) {
 
 <style lang="scss" scoped>
 ::v-deep(.el-input__wrapper){
-  .el-input__inner{
-    color: #FEFEFE;
-  }
+  //.el-input__inner{
+  //  color: #FEFEFE;
+  //}
   box-shadow: none;
   background: transparent;
-  input::-webkit-input-placeholder{ /*WebKit browsers*/
-    color: #FEFEFE;
-  }
-  input::-moz-input-placeholder{ /*Mozilla Firefox*/
-    color: #FEFEFE;
-  }
-  input::-ms-input-placeholder{ /*Internet Explorer*/
-    color: #FEFEFE;
-  }
+  //input::-webkit-input-placeholder{ /*WebKit browsers*/
+  //  color: #FEFEFE;
+  //}
+  //input::-moz-input-placeholder{ /*Mozilla Firefox*/
+  //  color: #FEFEFE;
+  //}
+  //input::-ms-input-placeholder{ /*Internet Explorer*/
+  //  color: #FEFEFE;
+  //}
 }
 
 </style>

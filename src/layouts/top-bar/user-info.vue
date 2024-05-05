@@ -18,7 +18,7 @@ const onUserCommand = (command: string)=> {
   <div class="user-info ml-10">
     <el-dropdown @command="onUserCommand">
       <template #default>
-        <div class="flex flex-justify-center items-center hand text-main user-name">
+        <div class="flex flex-justify-center items-center hand text-#606266 user-name">
           <el-avatar shape="circle" class="flex-shrink-0" :src="userInfo.avatar" size="small" />
           <span class="ml-1 flex-shrink-0 ">{{ userInfo.name }}</span>
           <el-icon class="el-icon--right flex-shrink-0"><arrow-down /></el-icon>
