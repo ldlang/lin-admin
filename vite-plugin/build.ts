@@ -1,5 +1,4 @@
 // 打包配置
-
 const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
 const DRIVE_LETTER_REGEX = /^[a-z]:/i
 

@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - dev # 更改为你的默认分支
+      - master # 更改为你的默认分支
 
 jobs:
   deploy:
