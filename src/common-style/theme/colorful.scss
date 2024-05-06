@@ -37,7 +37,13 @@
     .top-title {
       box-sizing: border-box;
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
     }
+    .user-name > span,
+    .user-name > .el-icon--right {
+      color: #ffffff;
+    }
+
     .menu-scrollbar {
       background: $meun-bg-main-color;
       .el-menu {
