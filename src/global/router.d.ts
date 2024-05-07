@@ -1,10 +1,18 @@
 import { VueRouter } from 'vue-router'
+import { IMenuList, IMenuItem } from '@/api'
 
 declare interface IRouterUtils {
   /**
-   * 路由工具类
+   * 链接路由格式化
+   * @param menuList 菜单列表
    */
-  formatRoutes(routes: any[]): any;
+  linkRouteFormat(menuList: IMenuItem): void;
+  /**
+   * 格式化路由
+   * @param menuList 菜单列表
+   * @params isRecursion 是否递归
+   */
+  formatRoutes(routes: IMenuList): void;
 }
 
 declare module 'vue-router' {

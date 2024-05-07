@@ -22,3 +22,11 @@ export function progressStart() {
 export function progressDone() {
   nprogress.done()
 }
+
+/**
+ * 判断是否是url
+ * @param path
+ */
+export function isUrl(path: string) {
+  return /^https?:\/\//.test(path)
+}

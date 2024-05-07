@@ -22,6 +22,7 @@ const userStore = defineStore('userStore', {
       } catch (e) {
         console.error(e)
       }
+      this.menuList.forEach(item=> router.routerUtils.linkRouteFormat(item))
       router.routerUtils.formatRoutes(this.menuList)
     },
     logout() {

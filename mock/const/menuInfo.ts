@@ -70,5 +70,41 @@ export const menuAllList = [
         children: []
       }
     ]
+  },
+  {
+    name: 'link',
+    path: '/link',
+    iconColor: '#7624E2',
+    icon: 'More',
+    meta: {
+      title: '外部页面'
+    },
+    children: [
+      {
+        name: 'inline',
+        path: '/link/inline',
+        component: 'views/link/inline',
+        iconColor: '#C818E5',
+        icon: 'House',
+        meta: {
+          title: '内嵌外链',
+          url: 'https://ldlang.github.io/lin-admin/'
+        },
+        children: []
+      },
+      {
+        name: 'outLink',
+        path: '/link/outLink',
+        component: 'views/link/outLink',
+        iconColor: '#C818E5',
+        icon: 'House',
+        meta: {
+          title: '外链跳转',
+          target: true,
+          url: 'https://ldlang.github.io/lin-admin/'
+        },
+        children: []
+      }
+    ]
   }
 ]

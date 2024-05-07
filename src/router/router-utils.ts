@@ -1,6 +1,7 @@
-import { IMenuList } from '@/api'
+import { IMenuItem, IMenuList } from '@/api'
 import type { Router } from 'vue-router'
 import { isEmpty, cloneDeep, isString } from 'lodash-es'
+import { isUrl } from '@/utils'
 
 const modules = import.meta.glob(['/**/**/**/*.vue'])
 
@@ -15,6 +16,21 @@ export class RouterUtils implements IRouterUtils {
   // 构造函数
   constructor(router: Router) {
     this.router = router
+  }
+  /**
+   * 链接路由格式化
+   * @param IMenuItem 菜单
+   */
+  linkRouteFormat(menuItem: IMenuItem) {
+    const iframe = 'views/layout/iframe'
+    if (menuItem.children.length <= 0 && isUrl(menuItem.meta.url as string) && !menuItem.meta.target) {
+      menuItem.component = iframe
+    }
+    if (menuItem.children.length > 0) {
+      menuItem.children.forEach(item=> {
+        this.linkRouteFormat(item)
+      })
+    }
   }
 
   /**

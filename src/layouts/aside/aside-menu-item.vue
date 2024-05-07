@@ -7,7 +7,7 @@ defineProps<{
 
 // 路由跳转
 function handleMenuItemClick(item: IMenuItem) {
-  router.push(item.path)
+  item.meta?.target ? window.open(item.meta.url as string, '_blank') : router.push(item.path)
 }
 </script>
 
