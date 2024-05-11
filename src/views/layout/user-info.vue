@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { IUserInfoFrom } from '@/api'
-import type { FormInstance, FormRules, UploadFile, UploadUserFile } from 'element-plus'
+import type { FormInstance, FormRules, UploadUserFile } from 'element-plus'
 import useUserInfoStore from '@/store/modules/user'
 const { userInfo } = toRefs(useUserInfoStore())
 
@@ -76,7 +76,7 @@ function resetFromClick(formEl: FormInstance | undefined) {
 </script>
 
 <template>
-  <div class="w-full h-full p-20 overflow-hidden">
+  <div class="w-full h-full p-20 overflow-hidden bg-white rd-5">
     <el-form
       ref="formRef"
       :model="userInfoForm"

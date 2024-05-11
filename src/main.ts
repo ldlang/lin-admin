@@ -18,6 +18,7 @@ import './common-style/index.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // element-plus样式
 import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 // 打包后启动mock
 import { setupProdMockServer } from '../mock/index'

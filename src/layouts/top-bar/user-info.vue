@@ -15,7 +15,7 @@ const onUserCommand = (command: string)=> {
 </script>
 
 <template>
-  <div class="user-info ml-10">
+  <div class="user-info mx-10">
     <el-dropdown @command="onUserCommand">
       <template #default>
         <div class="flex flex-justify-center items-center hand text-#606266 user-name">

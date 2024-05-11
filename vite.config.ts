@@ -7,7 +7,7 @@ import Components from 'unplugin-vue-components/vite' // 引入vite自动导入�
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' // 引入vite自动导入element-plus组件的包
 import { visualizer } from 'rollup-plugin-visualizer' // 引入打包体积分析的包
 // 压缩打包文件体积的包，要配合nginx配置静态资源代理才有用
-import { compression } from 'vite-plugin-compression2'
+// import { compression } from 'vite-plugin-compression2'
 import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 import { buildConfig } from './vite-plugin/build'
@@ -47,11 +47,11 @@ export default defineConfig({
       filename: 'visualizer.html' // 分析图生成的文件名
     }),
     // 打包压缩
-    compression({
-      threshold: 2000, // 设置只有超过 2k 的文件才执行压缩
-      deleteOriginalAssets: false, // 设置是否删除原文件
-      skipIfLargerOrEqual: true // 如果压缩后的文件大小与原文件大小一致或者更大时，不进行压缩
-    }),
+    // compression({
+    //   threshold: 2000, // 设置只有超过 2k 的文件才执行压缩
+    //   deleteOriginalAssets: false, // 设置是否删除原文件
+    //   skipIfLargerOrEqual: true // 如果压缩后的文件大小与原文件大小一致或者更大时，不进行压缩
+    // }),
     viteMockServe({
       mockPath: 'mock', // 指向mock下的文件
       watchFiles: true, // 监听文件内容变更

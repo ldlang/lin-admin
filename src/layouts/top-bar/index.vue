@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import collapse from './collapse.vue'
-import refresh from './refresh.vue'
-import userInfo from './user-info.vue'
-import fullScreen from './full-screen.vue'
-import search from './search.vue'
-import theme from './theme.vue'
-import lock from './lock.vue'
+const collapse = defineAsyncComponent(()=> import('./collapse.vue'))
+const refresh = defineAsyncComponent(()=> import('./refresh.vue'))
+const userInfo = defineAsyncComponent(()=> import('./user-info.vue'))
+const fullScreen = defineAsyncComponent(()=> import('./full-screen.vue'))
+const search = defineAsyncComponent(()=> import('./search.vue'))
+const theme = defineAsyncComponent(()=> import('./theme.vue'))
+const lock = defineAsyncComponent(()=> import('./lock.vue'))
+const setting = defineAsyncComponent(()=> import('./setting.vue'))
 
 </script>
 
@@ -24,6 +25,7 @@ import lock from './lock.vue'
       <full-screen />
       <lock />
       <user-info />
+      <setting />
     </div>
   </div>
 </template>
