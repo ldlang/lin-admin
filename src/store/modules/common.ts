@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { isEmpty } from 'lodash-es'
+import { ELayoutMode } from '@/layouts/type'
 import type { ICommonState, ITagList, ITagItem } from '@/store/modules/module-type/common-type'
 
 const commonStore = defineStore('commonStore', {
@@ -11,7 +12,8 @@ const commonStore = defineStore('commonStore', {
       lockPasswd: '',
       lockPath: '',
       tagList: [] as ITagList,
-      activeTag: {} as ITagItem
+      activeTag: {} as ITagItem,
+      layoutMode: ELayoutMode.vertical
     }
   },
   actions: {

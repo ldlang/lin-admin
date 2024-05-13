@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useCommonStore from '@/store/modules/common'
-const { isCollapse } = toRefs(useCommonStore())
+const { isCollapse } = storeToRefs(useCommonStore())
 
 function collapseClick() {
   isCollapse.value = !isCollapse.value

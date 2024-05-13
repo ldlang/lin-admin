@@ -1,4 +1,5 @@
 import type { IMeta } from '@/api'
+import type { ELayoutMode } from '@/layouts/type'
 import type { RouteParams, LocationQuery } from 'vue-router'
 
 export interface ITagItem {
@@ -27,4 +28,6 @@ export interface ICommonState {
   tagList: ITagList;
   /** 当前激活的标签页 */
   activeTag: ITagItem;
+  /** 侧边栏模式 */
+  layoutMode: ELayoutMode;
 }

@@ -28,7 +28,7 @@ onMounted(async()=> {
   await getTableData(getParams)
   setTimeout(()=> {
     computedTableHeight()
-  }, 200)
+  }, 500)
 })
 
 // 获取列表数据

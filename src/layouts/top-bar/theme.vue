@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { isEmpty } from 'lodash-es'
 import useCommonStore from '@/store/modules/common'
-const { theme } = toRefs(useCommonStore())
+const { theme } = storeToRefs(useCommonStore())
 
 interface IThemeItem {
   value: string

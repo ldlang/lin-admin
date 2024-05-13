@@ -18,7 +18,9 @@ export default defineConfig({
       main: '#FEFEFE', // 主颜色
       ccc: '#ccc',
       ddd: '#ddd',
-      eee: '#eee'
+      eee: '#eee',
+      f4: '#f4f4f4',
+      fff: '#ffffff'
     }
   },
   transformers: [

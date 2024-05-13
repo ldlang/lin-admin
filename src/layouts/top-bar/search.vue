@@ -2,7 +2,7 @@
 import { ElAutocomplete } from 'element-plus'
 import useUserStore from '@/store/modules/user'
 import { IMenuList, IMenuItem } from '@/api'
-const { menuList } = useUserStore()
+const { menuList } = storeToRefs(useUserStore())
 const router = useRouter()
 
 const state = ref('')
