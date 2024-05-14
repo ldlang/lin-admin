@@ -1,0 +1,1 @@
+import{b as t}from"./vue-router-CMD7rKwF.js";import{d as o,r as s,o as a,c,u as n}from"./@vue-D3v7N18w.js";const m=["src"],l=o({__name:"iframe",setup(u){const e=t(),r=s(e.meta.url);return(_,f)=>(a(),c("iframe",{src:n(r),width:"100%",height:"100%"},null,8,m))}});export{l as default};

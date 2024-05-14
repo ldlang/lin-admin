@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vueexport-helper-DlAUqK2U.js";import{o as c,c as o}from"./@vue-D3v7N18w.js";const n={},t={class:"menu-mix"};function r(s,m){return c(),o("div",t," menu-mix ")}const i=e(n,[["render",r]]);export{i as default};
