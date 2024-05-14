@@ -17,6 +17,7 @@ defineExpose({
   close
 })
 
+// 设置菜单模式
 function changeLayoutModeClick(mode: ELayoutMode) {
   layoutMode.value = mode
 }
