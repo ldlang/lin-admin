@@ -3,12 +3,14 @@ import asideMenu from '../aside/aside-menu.vue'
 import topBar from '../top-bar/index.vue'
 import tag from '../tag/tag.vue'
 import useCommonStore from '@/store/modules/common'
-const { isCollapse } = toRefs(useCommonStore())
+const lgLogo = defineAsyncComponent(()=> import('../components/lg-logo.vue'))
+const { isCollapse } = storeToRefs(useCommonStore())
 </script>
 
 <template>
   <el-container class="layout-container">
     <el-aside class="h-screen fixed left-0 top-0 z-10" :class="{ 'aside-collapse': isCollapse }">
+      <lg-logo />
       <aside-menu />
     </el-aside>
     <div class="aside-placeholder shrink-0" :class="{'aside-placeholder-collapse': isCollapse}" />
