@@ -1,5 +1,7 @@
 export const menuAllList = [
   {
+    id: 1,
+    parentId: 0,
     name: 'crud',
     path: '/crud',
     component: 'views/crud/crud',
@@ -15,6 +17,8 @@ export const menuAllList = [
     children: []
   },
   {
+    id: 2,
+    parentId: 0,
     name: 'deep',
     path: '/deep',
     iconColor: '#7624E2',
@@ -24,6 +28,8 @@ export const menuAllList = [
     },
     children: [
       {
+        id: 3,
+        parentId: 2,
         name: 'deep1',
         path: '/deep1',
         iconColor: '#C818E5',
@@ -33,6 +39,8 @@ export const menuAllList = [
         },
         children: [
           {
+            id: 4,
+            parentId: 2,
             name: 'deep2',
             path: '/deep2',
             iconColor: '#DEEE1C',
@@ -50,6 +58,8 @@ export const menuAllList = [
     ]
   },
   {
+    id: 5,
+    parentId: 0,
     name: 'functionalZone',
     path: '/functional-zone',
     iconColor: '#7624E2',
@@ -59,6 +69,8 @@ export const menuAllList = [
     },
     children: [
       {
+        id: 6,
+        parentId: 6,
         name: 'tinymce',
         path: '/rich-text/tinymce',
         component: 'views/functional-zone/tinymce',
@@ -72,6 +84,8 @@ export const menuAllList = [
     ]
   },
   {
+    id: 7,
+    parentId: 0,
     name: 'link',
     path: '/link',
     iconColor: '#7624E2',
@@ -81,6 +95,8 @@ export const menuAllList = [
     },
     children: [
       {
+        id: 8,
+        parentId: 7,
         name: 'inline',
         path: '/link/inline',
         component: 'views/link/inline',
@@ -93,6 +109,8 @@ export const menuAllList = [
         children: []
       },
       {
+        id: 9,
+        parentId: 7,
         name: 'outLink',
         path: '/link/outLink',
         component: 'views/link/outLink',

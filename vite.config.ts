@@ -77,6 +77,7 @@ export default defineConfig({
       '~': resolve(__dirname, './'),
       // src路径配置
       '@': resolve(__dirname, './src')
-    }
+    },
+    extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.vue']
   }
 })

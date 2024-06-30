@@ -29,7 +29,8 @@ watch(theme, (val)=> {
       collapse-transition
       :mode="mode"
       :collapse="isCollapse"
-      :popper-effect="popperEffect">
+      style="max-width: 390px"
+      ellipsis>
       <aside-menu-item :menuList="menuList" />
     </el-menu>
   </el-scrollbar>
@@ -43,7 +44,10 @@ watch(theme, (val)=> {
   height: calc(100vh - #{$top-bar-height});
 }
 .horizontal-height{
-  height: $top-bar-height;
+  height: calc(#{$top-bar-height} - 1px);
+  .el-menu--horizontal.el-menu{
+    height: calc(#{$top-bar-height} - 1px);
+  }
 }
 .menu-scrollbar{
   transition: all 0.3s;

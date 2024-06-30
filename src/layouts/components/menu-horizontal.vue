@@ -12,8 +12,10 @@ const { isCollapse } = storeToRefs(useCommonStore())
     <el-container>
       <el-header class="fixed top-0 right-0 z-10" :class="{'header-collapse': isCollapse}">
         <top-bar>
-          <lg-logo />
-          <aside-menu mode="horizontal" />
+          <div class="flex">
+            <lg-logo />
+            <aside-menu mode="horizontal" />
+          </div>
         </top-bar>
         <tag />
       </el-header>
