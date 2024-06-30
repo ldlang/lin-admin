@@ -1,1 +1,0 @@
-import{_ as o}from"./plugin-vueexport-helper-DlAUqK2U.js";import{o as e,c as n}from"./@vue-D3v7N18w.js";const t={},c={class:"menu-mix"};function r(s,a){return e(),n("div",c," menu-horizontal ")}const i=o(t,[["render",r]]);export{i as default};
