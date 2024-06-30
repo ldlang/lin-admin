@@ -18,6 +18,8 @@ export interface IMeta {
 
 // 单个菜单
 export interface IMenuItem {
+  id: number;
+  parentId: number;
   name: string;
   path: string;
   component?: string;

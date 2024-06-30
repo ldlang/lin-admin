@@ -10,7 +10,8 @@ const userStore = defineStore('userStore', {
       token: '',
       userInfo: {} as IUserInfo,
       menuList: [] as IMenuList,
-      routeIsLoad: false
+      routeIsLoad: false,
+      leftMenuList: [] as IMenuList
     }
   },
   actions: {
@@ -31,7 +32,7 @@ const userStore = defineStore('userStore', {
     }
   },
   persist: {
-    paths: ['token', 'userInfo', 'menuList']
+    paths: ['token', 'userInfo', 'menuList', 'leftMenuList']
   }
 })
 

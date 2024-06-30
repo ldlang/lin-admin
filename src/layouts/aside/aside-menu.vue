@@ -1,14 +1,26 @@
 <script setup lang="ts">
-import asideMenuItem from './aside-menu-item.vue'
+import { IMenuList } from '@/api'
 import useCommonStore from '@/store/modules/common'
 import useUserStore from '@/store/modules/user'
-const lgLogo = defineAsyncComponent(()=> import('../components/lg-logo.vue'))
-const { menuList } = toRefs(useUserStore())
-const { isCollapse, theme } = toRefs(useCommonStore())
+import { cloneDeep } from 'lodash-es'
+const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
+const { menuList } = storeToRefs(useUserStore())
+const { isCollapse, theme } = storeToRefs(useCommonStore())
 
-withDefaults(defineProps<{ mode?: 'vertical' | 'horizontal' }>(), {
-  mode: 'vertical'
+const { isNeedChildren } = withDefaults(defineProps<{
+   mode?: 'vertical' | 'horizontal',
+   isNeedChildren?: boolean
+  }>(), {
+  mode: 'vertical',
+  isNeedChildren: true
 })
+
+const menuAll = ref<IMenuList>([])
+
+// 混合模式下顶部按钮不需要子级菜单
+watch(()=> isNeedChildren, (val)=> {
+  menuAll.value = val === false ? cloneDeep(menuList.value)?.map(item=> ({ ...item, children: [] })) : menuList.value
+}, { immediate: true })
 
 const popperEffect = ref<'light' | 'dark'>(theme.value === 'colorful' ? 'light' : 'dark')
 watch(theme, (val)=> {
@@ -29,9 +41,9 @@ watch(theme, (val)=> {
       collapse-transition
       :mode="mode"
       :collapse="isCollapse"
-      style="max-width: 390px"
+      style="max-width: 50vw;"
       ellipsis>
-      <aside-menu-item :menuList="menuList" />
+      <aside-menu-item :menuList="menuAll" :isNeedChildren="false" />
     </el-menu>
   </el-scrollbar>
 </template>

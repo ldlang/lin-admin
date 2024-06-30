@@ -8,5 +8,7 @@ export interface IUserState {
   /** 路由列表 */
   menuList: IMenuList
   /** 动态路由是否添加 */
-  routeIsLoad: boolean
+  routeIsLoad: boolean,
+  /** 菜单-混合模式下左侧的菜单 */
+  leftMenuList: IMenuList
 }

@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import type { IMenuList, IMenuItem } from '@/api'
+import useUserStore from '@/store/modules/user'
+const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
+const { leftMenuList, menuList: menuAll } = storeToRefs(useUserStore())
+
 const router = useRouter()
-defineProps<{
-  menuList: IMenuList
-}>()
+const { isNeedChildren } = withDefaults(defineProps<{
+  menuList: IMenuList,
+  isNeedChildren?: boolean
+}>(), {
+  isNeedChildren: true
+})
 
 // 路由跳转
 function handleMenuItemClick(item: IMenuItem) {
-  item.meta?.target ? window.open(item.meta.url as string, '_blank') : router.push(item.path)
+  if (isNeedChildren) {
+    item.meta?.target ? window.open(item.meta.url as string, '_blank') : router.push(item.path)
+  } else {
+    const menu = menuAll.value.find(ele=> ele.id === item.id)
+    leftMenuList.value = menu && menu.children.length > 0 ? menu.children : []
+  }
 }
 </script>
 
