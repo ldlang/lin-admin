@@ -13,7 +13,8 @@ const commonStore = defineStore('commonStore', {
       lockPath: '',
       tagList: [] as ITagList,
       activeTag: {} as ITagItem,
-      layoutMode: ELayoutMode.vertical
+      layoutMode: ELayoutMode.vertical,
+      mixMenuActive: ''
     }
   },
   actions: {
@@ -25,6 +26,11 @@ const commonStore = defineStore('commonStore', {
       this.tagList.push(tag)
     }
   }
+  // persist: {
+  //   afterRestore: (ctx)=> {
+  //     ctx.store.mixMenuActive = ''
+  //   }
+  // }
 })
 
 export default commonStore

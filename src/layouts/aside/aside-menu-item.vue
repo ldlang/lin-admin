@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { IMenuList, IMenuItem } from '@/api'
 import useUserStore from '@/store/modules/user'
+import useCommonStore from '@/store/modules/common'
 const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
 const { leftMenuList, menuList: menuAll } = storeToRefs(useUserStore())
+const { mixMenuActive } = storeToRefs(useCommonStore())
 
 const router = useRouter()
 const { isNeedChildren } = withDefaults(defineProps<{
@@ -14,11 +16,17 @@ const { isNeedChildren } = withDefaults(defineProps<{
 
 // 路由跳转
 function handleMenuItemClick(item: IMenuItem) {
+  const handleNavigation = (itemInfo: IMenuItem)=> {
+    itemInfo.meta?.target ? window.open(itemInfo.meta.url as string, '_blank') : router.push(itemInfo.path)
+  }
+
   if (isNeedChildren) {
-    item.meta?.target ? window.open(item.meta.url as string, '_blank') : router.push(item.path)
+    handleNavigation(item)
   } else {
     const menu = menuAll.value.find(ele=> ele.id === item.id)
-    leftMenuList.value = menu && menu.children.length > 0 ? menu.children : []
+    mixMenuActive.value = menu!.path || ''
+    leftMenuList.value = menu?.children || [];
+    (leftMenuList.value.length <= 0) && handleNavigation(item)
   }
 }
 </script>

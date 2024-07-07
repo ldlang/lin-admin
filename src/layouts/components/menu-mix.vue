@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import topBar from '../top-bar/index.vue'
-import tag from '../tag/tag.vue'
 import useUserStore from '@/store/modules/user'
+import useCommomStore from '@/store/modules/common'
+import type { IMenuItem } from '@/api'
+const topBar = defineAsyncComponent(()=> import('../top-bar/index.vue'))
+const tag = defineAsyncComponent(()=> import('../tag/tag.vue'))
 const lgLogo = defineAsyncComponent(()=> import('../components/lg-logo.vue'))
 const mixLeftMenu = defineAsyncComponent(()=> import('./mix-left-menu.vue'))
 const asideMenu = defineAsyncComponent(()=> import('../aside/aside-menu.vue'))
-const { leftMenuList } = storeToRefs(useUserStore())
+const { menuList, leftMenuList } = storeToRefs(useUserStore())
+const { mixMenuActive, activeTag } = storeToRefs(useCommomStore())
 
 const isShowLeftMenu = computed(()=> leftMenuList.value.length > 0)
+
 </script>
 
 <template>
@@ -15,13 +19,13 @@ const isShowLeftMenu = computed(()=> leftMenuList.value.length > 0)
     <el-aside class="h-screen fixed left-0 top-0 z-10" v-show="isShowLeftMenu">
       <mix-left-menu />
     </el-aside>
-    <div class="aside-placeholder shrink-0" v-show="isShowLeftMenu" />
+    <div class="aside-placeholder shrink-0" :class="{'!w-0px': !isShowLeftMenu}" />
     <el-container>
-      <el-header class="fixed top-0 right-0 z-10">
+      <el-header class="fixed top-0 right-0 z-10" :class="{'!w-100%': !isShowLeftMenu}">
         <top-bar>
           <div class="flex">
             <lg-logo />
-            <aside-menu mode="horizontal" :isNeedChildren="false" />
+            <aside-menu mode="horizontal" :isNeedChildren="false" :activeMenu="mixMenuActive" />
           </div>
         </top-bar>
         <tag />

@@ -30,4 +30,6 @@ export interface ICommonState {
   activeTag: ITagItem;
   /** 侧边栏模式 */
   layoutMode: ELayoutMode;
+  /** 混合模式下顶部激活的菜单 */
+  mixMenuActive: string;
 }

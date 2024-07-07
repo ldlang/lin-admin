@@ -9,7 +9,8 @@ const { isCollapse, theme } = storeToRefs(useCommonStore())
 
 const { isNeedChildren } = withDefaults(defineProps<{
    mode?: 'vertical' | 'horizontal',
-   isNeedChildren?: boolean
+   isNeedChildren?: boolean,
+   activeMenu?: string
   }>(), {
   mode: 'vertical',
   isNeedChildren: true
@@ -37,7 +38,7 @@ watch(theme, (val)=> {
     <el-menu
       :class="{'aside-menu-collapse': isCollapse }"
       unique-opened
-      :default-active="$route.path"
+      :default-active="activeMenu || $route.path"
       collapse-transition
       :mode="mode"
       :collapse="isCollapse"

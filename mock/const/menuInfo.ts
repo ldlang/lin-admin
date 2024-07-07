@@ -40,7 +40,7 @@ export const menuAllList = [
         children: [
           {
             id: 4,
-            parentId: 2,
+            parentId: 3,
             name: 'deep2',
             path: '/deep2',
             iconColor: '#DEEE1C',
