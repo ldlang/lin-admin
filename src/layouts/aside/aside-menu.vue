@@ -44,7 +44,7 @@ watch(theme, (val)=> {
       :collapse="isCollapse"
       style="max-width: 50vw;"
       ellipsis>
-      <aside-menu-item :menuList="menuAll" :isNeedChildren="false" />
+      <aside-menu-item :menuList="menuAll" :isNeedChildren="isNeedChildren" />
     </el-menu>
   </el-scrollbar>
 </template>
