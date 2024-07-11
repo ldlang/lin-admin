@@ -12,51 +12,56 @@ const { mixMenuActive, activeTag } = storeToRefs(useCommomStore())
 
 const isShowLeftMenu = computed(()=> leftMenuList.value.length > 0)
 
-watch(mixMenuActive, (newVal)=> {
-  if (newVal === '') {
-    // 找到当前激活的菜单的parentId
-    let parentId: number = Number.MAX_VALUE
-    let parentMenu: IMenuItem = {} as IMenuItem
-    const findMenuParentId = (menu: IMenuList)=> {
-      for (let index = 0; index < menu.length; index++) {
-        if (activeTag.value.path === menu[index].path) {
-          parentId = menu[index].parentId
-          parentMenu = menu[index]
-        } else {
-          menu[index].children.length > 0 && findMenuParentId(menu[index].children)
-        }
+function handleTopMenuActive() {
+  // 找到当前激活的菜单的parentId
+  let parentId: number = Number.MAX_VALUE
+  let parentMenu: IMenuItem = {} as IMenuItem
+  const findMenuParentId = (menu: IMenuList)=> {
+    for (let index = 0; index < menu.length; index++) {
+      if (activeTag.value.path === menu[index].path) {
+        parentId = menu[index].parentId
+        parentMenu = menu[index]
+      } else {
+        menu[index].children.length > 0 && findMenuParentId(menu[index].children)
       }
-    }
-    findMenuParentId(menuList.value)
-    // 如何已经是最顶级的父级那么直接赋值
-    if (parentId === 0) {
-      mixMenuActive.value = parentMenu?.path
-      leftMenuList.value = parentMenu?.children?.length > 0 ? parentMenu?.children : []
-    } else {
-      // 如果不是最顶层的父级，那么继续往上找
-      const findMenuPath = (menu: IMenuList)=> {
-        for (let i = 0; i < menu.length; i++) {
-          if (parentId === menu[i].id) {
-            if (menu[i].parentId !== 0) {
-              parentId = menu[i].parentId
-              findMenuPath(menuList.value)
-            } else {
-              mixMenuActive.value = menu[i].path
-              leftMenuList.value = menu[i].children.length > 0 ? menu[i].children : []
-              break
-            }
-          } else {
-            menu[i].children.length > 0 && findMenuPath(menu[i].children)
-          }
-        }
-      }
-      findMenuPath(menuList.value)
     }
   }
-}, {
-  immediate: true,
-  deep: true
-})
+  findMenuParentId(menuList.value)
+  // 如何已经是最顶级的父级那么直接赋值
+  if (parentId === 0) {
+    mixMenuActive.value = parentMenu?.path
+    leftMenuList.value = parentMenu?.children?.length > 0 ? parentMenu?.children : []
+  } else {
+    // 如果不是最顶层的父级，那么继续往上找
+    const findMenuPath = (menu: IMenuList)=> {
+      for (let i = 0; i < menu.length; i++) {
+        if (parentId === menu[i].id) {
+          if (menu[i].parentId !== 0) {
+            parentId = menu[i].parentId
+            findMenuPath(menuList.value)
+          } else {
+            mixMenuActive.value = menu[i].path
+            leftMenuList.value = menu[i].children.length > 0 ? menu[i].children : []
+            break
+          }
+        } else {
+          menu[i].children.length > 0 && findMenuPath(menu[i].children)
+        }
+      }
+    }
+    findMenuPath(menuList.value)
+  }
+}
+
+watch(mixMenuActive, (newVal)=> {
+  if (newVal === '') {
+    handleTopMenuActive()
+  }
+}, { immediate: true, deep: true })
+
+watch(activeTag, ()=> {
+  handleTopMenuActive()
+}, { immediate: true, deep: true })
 
 </script>
 
