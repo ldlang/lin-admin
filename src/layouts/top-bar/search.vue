@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ElAutocomplete } from 'element-plus'
-import useUserStore from '@/store/modules/user'
+import { useUserStore } from '@/store'
 import { IMenuList, IMenuItem } from '@/api'
 const { menuList } = storeToRefs(useUserStore())
 const router = useRouter()

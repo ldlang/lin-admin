@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import useUserStore from '@/store/modules/user'
-import useCommomStore from '@/store/modules/common'
+import { useUserStore, useCommonStore } from '@/store'
 import type { IMenuList, IMenuItem } from '@/api'
 const topBar = defineAsyncComponent(()=> import('../top-bar/index.vue'))
 const tag = defineAsyncComponent(()=> import('../tag/tag.vue'))
@@ -8,7 +7,7 @@ const lgLogo = defineAsyncComponent(()=> import('../components/lg-logo.vue'))
 const mixLeftMenu = defineAsyncComponent(()=> import('./mix-left-menu.vue'))
 const asideMenu = defineAsyncComponent(()=> import('../aside/aside-menu.vue'))
 const { menuList, leftMenuList } = storeToRefs(useUserStore())
-const { mixMenuActive, activeTag } = storeToRefs(useCommomStore())
+const { mixMenuActive, activeTag } = storeToRefs(useCommonStore())
 
 const isShowLeftMenu = computed(()=> leftMenuList.value.length > 0)
 

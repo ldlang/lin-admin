@@ -1,6 +1,5 @@
 import router from './index'
-import useUserStore from '@/store/modules/user'
-import useCommomStore from '@/store/modules/common'
+import { useUserStore, useCommonStore } from '@/store'
 import { progressStart, progressDone } from '@/utils'
 
 // 锁屏页面路由
@@ -9,7 +8,7 @@ const LOCK_PATH = '/lock-page'
 router.beforeEach(async(to, from, next)=> {
   progressStart()
   const { token, addMenuRoutes, routeIsLoad } = toRefs(useUserStore())
-  const { isLock, addTagList } = toRefs(useCommomStore())
+  const { isLock, addTagList } = toRefs(useCommonStore())
 
   // 如果当前路径已经是登录页且未登录，则直接进入
   if (to.path === '/login' && !token.value) {

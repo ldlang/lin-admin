@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const darkMode = defineAsyncComponent(()=> import('./dark-mode.vue'))
 import { ELayoutMode } from '../../type'
-import useCommonStore from '@/store/modules/common'
+import { useCommonStore } from '@/store'
 const { layoutMode } = storeToRefs(useCommonStore())
 const show = ref(false)
 

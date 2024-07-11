@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useCommonStore from '@/store/modules/common'
+import { useCommonStore } from '@/store'
 const { isCollapse } = toRefs(useCommonStore())
 </script>
 

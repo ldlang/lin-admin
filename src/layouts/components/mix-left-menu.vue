@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useUserStore from '@/store/modules/user'
+import { useUserStore } from '@/store'
 const asideMenuItem = defineAsyncComponent(()=> import('../aside/aside-menu-item.vue'))
 const { leftMenuList } = storeToRefs(useUserStore())
 </script>

@@ -10,4 +10,6 @@ pinia.use(
   })
 )
 
+export * from './modules/user'
+export * from './modules/common'
 export default pinia

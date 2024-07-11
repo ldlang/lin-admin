@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Encrypt } from '@/utils'
-import useCommonStore from '@/store/modules/common'
+import { useCommonStore } from '@/store'
 const { isLock, lockPasswd, lockPath } = storeToRefs(useCommonStore())
 const router = useRouter()
 const route = useRoute()

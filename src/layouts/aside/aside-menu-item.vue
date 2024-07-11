@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { IMenuList, IMenuItem } from '@/api'
-import useUserStore from '@/store/modules/user'
-import useCommonStore from '@/store/modules/common'
+import { useUserStore, useCommonStore } from '@/store'
 const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
 const { leftMenuList, menuList: menuAll } = storeToRefs(useUserStore())
 const { mixMenuActive } = storeToRefs(useCommonStore())

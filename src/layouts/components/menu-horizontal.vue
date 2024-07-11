@@ -2,7 +2,7 @@
 import asideMenu from '../aside/aside-menu.vue'
 import topBar from '../top-bar/index.vue'
 import tag from '../tag/tag.vue'
-import useCommonStore from '@/store/modules/common'
+import { useCommonStore } from '@/store'
 const lgLogo = defineAsyncComponent(()=> import('../components/lg-logo.vue'))
 const { isCollapse } = storeToRefs(useCommonStore())
 </script>

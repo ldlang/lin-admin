@@ -1,5 +1,5 @@
 import type { InternalAxiosRequestConfig, AxiosError } from 'axios'
-import useUserStore from '@/store/modules/user'
+import { useUserStore } from '@/store'
 
 const requestInterceptor = {
   /**

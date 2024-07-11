@@ -4,7 +4,7 @@ import { loginApi, getUserInfoApi } from '@/api'
 import type { FormInstance, FormRules, TabsPaneContext } from 'element-plus'
 import { cloneDeep } from 'lodash-es'
 import { Encrypt } from '@/utils'
-import useUserStore from '@/store/modules/user'
+import { useUserStore } from '@/store'
 import { loginFormHooks, tabFormEnum } from './login-form-hooks'
 const { token, userInfo } = storeToRefs(useUserStore())
 const router = useRouter()

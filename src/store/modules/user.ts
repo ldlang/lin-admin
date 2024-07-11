@@ -2,9 +2,9 @@ import { defineStore } from 'pinia'
 import router from '@/router'
 import { getMenusApi, type IUserInfo, IMenuList } from '@/api'
 import type { IUserState } from '@/store/modules/module-type/user-type'
-import useCommonStore from './common'
+import { useCommonStore } from './common'
 
-const userStore = defineStore('userStore', {
+export const useUserStore = defineStore('useUserStore', {
   state: (): IUserState=> {
     return {
       token: '',
@@ -35,5 +35,3 @@ const userStore = defineStore('userStore', {
     paths: ['token', 'userInfo', 'menuList', 'leftMenuList']
   }
 })
-
-export default userStore

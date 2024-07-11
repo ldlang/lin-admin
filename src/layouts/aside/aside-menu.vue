@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { IMenuList } from '@/api'
-import useCommonStore from '@/store/modules/common'
-import useUserStore from '@/store/modules/user'
+import { useUserStore, useCommonStore } from '@/store'
 import { cloneDeep } from 'lodash-es'
 const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
 const { menuList } = storeToRefs(useUserStore())

@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash-es'
 import { ELayoutMode } from '@/layouts/type'
 import type { ICommonState, ITagList, ITagItem } from '@/store/modules/module-type/common-type'
 
-const commonStore = defineStore('commonStore', {
+export const useCommonStore = defineStore('useCommonStore', {
   state: (): ICommonState=> {
     return {
       isCollapse: false,
@@ -32,5 +32,3 @@ const commonStore = defineStore('commonStore', {
     }
   }
 })
-
-export default commonStore
