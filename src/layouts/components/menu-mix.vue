@@ -33,6 +33,7 @@ watch(mixMenuActive, (newVal)=> {
       mixMenuActive.value = parentMenu?.path
       leftMenuList.value = parentMenu?.children?.length > 0 ? parentMenu?.children : []
     } else {
+      // 如果不是最顶层的父级，那么继续往上找
       const findMenuPath = (menu: IMenuList)=> {
         for (let i = 0; i < menu.length; i++) {
           if (parentId === menu[i].id) {
