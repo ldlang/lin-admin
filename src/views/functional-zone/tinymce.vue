@@ -9,12 +9,12 @@ const init = ref({
   convert_urls: false, // 禁止自动转换路径
   language: 'zh_CN',
   // 插件
-  plugins: `help preview importcss searchreplace autolink directionality code visualblocks visualchars 
+  plugins: `fontsizeinput help preview importcss searchreplace autolink directionality code visualblocks visualchars
   fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists
    wordcount emoticons accordion`,
   toolbar_mode: 'Wrap', // 工具栏模式
   // 自定义工具栏
-  toolbar: `help code undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough
+  toolbar: `| help code undo redo | accordion accordionremove | blocks fontfamily fontsize fontsizeinput | bold italic underline strikethrough
     | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat |
      charmap emoticons | code fullscreen preview | print | pagebreak anchor codesample | ltr rtl`,
   branding: false, // 是否显示右下角logo
