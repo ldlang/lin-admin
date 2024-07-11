@@ -9,7 +9,7 @@ const init = ref({
   convert_urls: false, // 禁止自动转换路径
   language: 'zh_CN',
   // 插件
-  plugins: `fontsizeinput help preview importcss searchreplace autolink directionality code visualblocks visualchars
+  plugins: `help preview importcss searchreplace autolink directionality code visualblocks visualchars
   fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists
    wordcount emoticons accordion`,
   toolbar_mode: 'Wrap', // 工具栏模式

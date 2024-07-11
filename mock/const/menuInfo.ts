@@ -70,7 +70,7 @@ export const menuAllList = [
     children: [
       {
         id: 6,
-        parentId: 6,
+        parentId: 5,
         name: 'tinymce',
         path: '/rich-text/tinymce',
         component: 'views/functional-zone/tinymce',

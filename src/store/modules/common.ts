@@ -25,12 +25,12 @@ const commonStore = defineStore('commonStore', {
       if (!isEmpty(this.tagList.find(item=> item.path === tag.path))) return
       this.tagList.push(tag)
     }
+  },
+  persist: {
+    afterRestore: (ctx)=> {
+      ctx.store.mixMenuActive = ''
+    }
   }
-  // persist: {
-  //   afterRestore: (ctx)=> {
-  //     ctx.store.mixMenuActive = ''
-  //   }
-  // }
 })
 
 export default commonStore
