@@ -3,7 +3,7 @@ import { useCommonStore } from '@/store'
 import { isEmpty } from 'lodash-es'
 import type { TabsPaneContext, TabPaneName } from 'element-plus'
 import { onClickOutside } from '@vueuse/core'
-const { tagList, activeTag } = toRefs(useCommonStore())
+const { tagList, activeTag } = storeToRefs(useCommonStore())
 const router = useRouter()
 // 首页路径
 const HOME_PATH = '/home'

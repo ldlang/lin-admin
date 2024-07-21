@@ -36,7 +36,7 @@ const poetryList = ref<{
   <div>
     <el-card shadow="hover">
       <div class="flex">
-        <el-avatar size="large" class="shrink-0" src="/lin-admin/image/avatar.jpg" />
+        <el-avatar size="large" class="shrink-0" src="/lin-admin/image/avatar.png" />
         <div class="flex mx-10 flex-col justify-between">
           <h3>学海无涯，苦乐自知。</h3>
           <div class="text-15 mt-5">苦，乃求学之必经之路。乐，为求学之甘果。攻克难题，掌握新技，

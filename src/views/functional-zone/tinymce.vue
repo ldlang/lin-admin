@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Editor from '@tinymce/tinymce-vue'
 
-const tinymceContent = ref('<p><img src="https://ldlang.github.io/lin-note/avatar.jpg" alt="logo" width="231" height="231"></p>')
+const tinymceContent = ref('<p><img src="https://ldlang.github.io/lin-note/avatar.png" alt="logo" width="231" height="231"></p>')
 const init = ref({
   menubar: true, // 顶部菜单栏是否开启
   height: 800,

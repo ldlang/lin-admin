@@ -7,7 +7,7 @@ const { isCollapse } = toRefs(useCommonStore())
   <div class="lg-logo">
     <div class="top-title text-gray flex justify-center items-center text-25 b-(r-1 r-solid r-eee)"
       :class="{'top-title-collapse': isCollapse}">
-      <el-avatar :size="26" src="/lin-admin/image/avatar.jpg" class="mr-10" />
+      <el-avatar :size="26" src="/lin-admin/image/avatar.png" class="mr-10" />
       <span v-show="!isCollapse">ldlang</span>
     </div>
   </div>

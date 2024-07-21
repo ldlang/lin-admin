@@ -4,7 +4,7 @@ const menuVertical = defineAsyncComponent(()=> import('./components/menu-vertica
 const menuHorizontal = defineAsyncComponent(()=> import('./components/menu-horizontal.vue'))
 const menuMix = defineAsyncComponent(()=> import('./components/menu-mix.vue'))
 import { useCommonStore, useUserStore } from '@/store'
-const { layoutMode } = storeToRefs(useCommonStore())
+const { layoutMode, isWatermark } = storeToRefs(useCommonStore())
 const { userInfo } = storeToRefs(useUserStore())
 
 type TMenuModeObj = { [key in ELayoutMode]: typeof menuVertical | typeof menuHorizontal | typeof menuMix }
@@ -14,13 +14,11 @@ const menuModeObj = reactive<TMenuModeObj>({
   [ELayoutMode.mix]: markRaw(menuMix)
 })
 
-const waterMarkContent = computed(()=> {
-  return [userInfo.value.name, userInfo.value.phone]
-})
+const waterMarkContent = computed(()=> isWatermark.value ? [userInfo.value?.name, userInfo.value?.phone] : '')
 </script>
 
 <template>
-  <el-watermark :font="{ color: 'rgba(0, 0, 0, .15)',}" :content="waterMarkContent">
+  <el-watermark :font="{ color: 'rgba(0, 0, 0, .15)',}" :zIndex="9999" :content="waterMarkContent">
     <component :is="menuModeObj[layoutMode]" />
   </el-watermark>
 </template>

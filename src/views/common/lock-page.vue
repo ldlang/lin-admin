@@ -2,10 +2,9 @@
 import dayjs from 'dayjs'
 import type { FormInstance, FormRules } from 'element-plus'
 import { Decrypt } from '@/utils'
-import useUserStore from '@/store/modules/user'
-import useCommonStore from '@/store/modules/common'
-const { logout } = toRefs(useUserStore())
-const { lockPasswd, isLock, lockPath } = toRefs(useCommonStore())
+import { useCommonStore, useUserStore } from '@/store'
+const { logout } = useUserStore()
+const { lockPasswd, isLock, lockPath } = storeToRefs(useCommonStore())
 const router = useRouter()
 
 const nowTiem = ref(dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'))
@@ -61,7 +60,7 @@ const submitLoginClick = async()=> {
 }
 
 const LogoutClick = async()=> {
-  logout.value()
+  logout()
   router.replace('/login')
   ElMessage.success('退出成功！')
 }

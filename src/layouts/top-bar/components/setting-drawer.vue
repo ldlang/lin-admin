@@ -1,8 +1,7 @@
 <script setup lang="ts">
-const darkMode = defineAsyncComponent(()=> import('./dark-mode.vue'))
 import { ELayoutMode } from '../../type'
-import { useCommonStore } from '@/store'
-const { layoutMode } = storeToRefs(useCommonStore())
+import { useCommonStore } from '@/store/modules/common'
+const { layoutMode, isWatermark } = storeToRefs(useCommonStore())
 const show = ref(false)
 
 const open = ()=> {
@@ -28,14 +27,9 @@ function changeLayoutModeClick(mode: ELayoutMode) {
   <el-drawer
     title="系统设置"
     v-model="show"
-    size="35%">
-    <!-- <div class="flex justify-center text-15">
-      <span class="mr-10">暗黑</span>
-      <dark-mode />
-      <span class="ml-10">明亮</span>
-    </div> -->
+    size="300px">
     <section class="mt-10">
-      <h5 class="my-10">排版方式</h5>
+      <h5 class="my-10 fw-bold">排版方式</h5>
       <div class="flex">
         <!-- 左侧菜单 -->
         <el-tooltip content="左侧菜单" placement="bottom">
@@ -71,6 +65,12 @@ function changeLayoutModeClick(mode: ELayoutMode) {
             </div>
           </div>
         </el-tooltip>
+      </div>
+      <el-divider />
+
+      <div class="flex justify-between items-center px-5">
+        <span class="fw-bold">水印</span>
+        <lin-switch v-model:checkValue="isWatermark" />
       </div>
     </section>
   </el-drawer>

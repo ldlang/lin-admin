@@ -14,7 +14,8 @@ export const useCommonStore = defineStore('useCommonStore', {
       tagList: [] as ITagList,
       activeTag: {} as ITagItem,
       layoutMode: ELayoutMode.vertical,
-      mixMenuActive: ''
+      mixMenuActive: '',
+      isWatermark: false
     }
   },
   actions: {
@@ -27,8 +28,10 @@ export const useCommonStore = defineStore('useCommonStore', {
     }
   },
   persist: {
-    afterRestore: (ctx)=> {
-      ctx.store.mixMenuActive = ''
-    }
+    paths: ['isCollapse', 'theme', 'isLock', 'lockPasswd', 'lockPath', 'tagList', 'activeTag', 'layoutMode', 'isWatermark']
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useCommonStore, import.meta.hot))
+}

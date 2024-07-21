@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { IUserInfoFrom } from '@/api'
 import type { FormInstance, FormRules, UploadUserFile } from 'element-plus'
-import useUserInfoStore from '@/store/modules/user'
-const { userInfo } = toRefs(useUserInfoStore())
+import { useUserStore } from '@/store'
+const { userInfo } = storeToRefs(useUserStore())
 
 // form实例
 const formRef = ref<FormInstance>()

@@ -32,4 +32,6 @@ export interface ICommonState {
   layoutMode: ELayoutMode;
   /** 混合模式下顶部激活的菜单 */
   mixMenuActive: string;
+  /** 是否开启水印 */
+  isWatermark: boolean;
 }
