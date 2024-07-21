@@ -28,10 +28,8 @@ export const useCommonStore = defineStore('useCommonStore', {
     }
   },
   persist: {
-    paths: ['isCollapse', 'theme', 'isLock', 'lockPasswd', 'lockPath', 'tagList', 'activeTag', 'layoutMode', 'isWatermark']
+    afterRestore: (ctx)=> {
+      ctx.store.mixMenuActive = ''
+    }
   }
 })
-
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useCommonStore, import.meta.hot))
-}
