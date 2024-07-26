@@ -1,4 +1,3 @@
-import { VueRouter } from 'vue-router'
 import { IMenuList, IMenuItem } from '@/api'
 
 declare interface IRouterUtils {
@@ -10,9 +9,8 @@ declare interface IRouterUtils {
   /**
    * 格式化路由
    * @param menuList 菜单列表
-   * @params isRecursion 是否递归
    */
-  formatRoutes(routes: IMenuList): void;
+  formatRoutes(menuList: IMenuList): void;
 }
 
 declare module 'vue-router' {

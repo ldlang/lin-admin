@@ -36,7 +36,6 @@ export class RouterUtils implements IRouterUtils {
   /**
    * 格式化路由
    * @param menuList 菜单列表
-   * @params isRecursion 是否递归
    */
   formatRoutes(menuList: IMenuList) {
     if (isEmpty(menuList)) return
