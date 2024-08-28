@@ -1,5 +1,31 @@
 export const menuAllList = [
   {
+    id: 10,
+    parentId: 0,
+    name: 'dashboard',
+    path: '/dashboard',
+    iconColor: '#7624E2',
+    icon: 'House',
+    meta: {
+      title: 'dashboard'
+    },
+    children: [
+      {
+        id: 11,
+        parentId: 10,
+        name: 'chart',
+        path: '/dashboard/chart',
+        component: 'views/dashboard/chart/chart',
+        iconColor: '#7624E2',
+        icon: 'House',
+        meta: {
+          title: '数字图表'
+        },
+        children: []
+      }
+    ]
+  },
+  {
     id: 1,
     parentId: 0,
     name: 'crud',

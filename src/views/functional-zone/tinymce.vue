@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Editor from '@tinymce/tinymce-vue'
 
-const tinymceContent = ref('<p><img src="https://ldlang.github.io/lin-note/avatar.png" alt="logo" width="231" height="231"></p>')
+const tinymceContent = ref('<p><img src="https://ldlang.github.io/lin-admin/image/avatar.png" alt="logo" width="231" height="231"></p>')
 const init = ref({
   menubar: true, // 顶部菜单栏是否开启
   height: 800,
@@ -25,7 +25,7 @@ const init = ref({
   contextmenu: 'link', // 右键菜单
   file_picker_callback: (callback: any, value: any, meta: any)=> {
     if (meta.filetype === 'image') {
-      callback('https://ldlang.github.io/lin-note/avatar.jpg', { alt: 'logo' })
+      callback('https://ldlang.github.io/lin-admin/image/avatar.png', { alt: 'logo' })
     }
     // if (meta.filetype === 'image') {
     //   const input = document.createElement('input')
@@ -43,7 +43,7 @@ const init = ref({
   },
   images_upload_handler: (blobInfo: any)=> {
     return new Promise((resolve, reject)=> {
-      resolve('https://ldlang.github.io/lin-note/avatar.jpg')
+      resolve('https://ldlang.github.io/lin-admin/image/avatar.png')
     })
     // return new Promise((resolve, reject)=> {
     //   const data = new FormData()

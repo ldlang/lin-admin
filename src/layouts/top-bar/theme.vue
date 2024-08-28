@@ -16,11 +16,11 @@ const themeList: Array<IThemeItem> = [
   {
     value: 'colorful',
     label: '炫彩主题'
-  },
-  {
-    value: 'vip',
-    label: 'vip主题'
   }
+  // {
+  //   value: 'vip',
+  //   label: 'vip主题'
+  // }
 ]
 // 如果已经选择了主题,那么就使用已有的主题
 watch(theme, (newVal)=> {
