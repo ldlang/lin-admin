@@ -7,7 +7,8 @@ export const menuAllList = [
     iconColor: '#7624E2',
     icon: 'House',
     meta: {
-      title: 'dashboard'
+      title: 'dashboard',
+      isSearch: true
     },
     children: [
       {
@@ -19,7 +20,8 @@ export const menuAllList = [
         iconColor: '#7624E2',
         icon: 'House',
         meta: {
-          title: '数字图表'
+          title: '数字图表',
+          isSearch: true
         },
         children: []
       }
@@ -103,7 +105,8 @@ export const menuAllList = [
         iconColor: '#C818E5',
         icon: 'House',
         meta: {
-          title: '富文本'
+          title: '富文本',
+          isSearch: true
         },
         children: []
       }
@@ -130,7 +133,8 @@ export const menuAllList = [
         icon: 'House',
         meta: {
           title: '内嵌外链',
-          url: 'https://ldlang.github.io/lin-admin/'
+          url: 'https://ldlang.github.io/lin-admin/',
+          isSearch: true
         },
         children: []
       },
@@ -145,7 +149,8 @@ export const menuAllList = [
         meta: {
           title: '外链跳转',
           target: true,
-          url: 'https://ldlang.github.io/lin-admin/'
+          url: 'https://ldlang.github.io/lin-admin/',
+          isSearch: true
         },
         children: []
       }
