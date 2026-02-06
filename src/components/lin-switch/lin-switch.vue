@@ -1,13 +1,10 @@
 <script setup lang="ts">
 const checkValue = defineModel<boolean>('checkValue', { default: true })
 
-const { width, height } = withDefaults(defineProps<{
+const { width = '50px', height = '30px' } = defineProps<{
   width?: string
   height?: string
-}>(), {
-  width: '50px',
-  height: '30px'
-})
+}>()
 
 const emit = defineEmits<{
   change: [checkValue: boolean]
