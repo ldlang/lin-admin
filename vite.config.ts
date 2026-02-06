@@ -13,7 +13,7 @@ import { resolve } from 'path'
 import { buildConfig } from './vite-plugin/build'
 
 export default defineConfig({
-  base: '/',
+  base: '/lin-admin/',
   plugins: [
     vue(),
     // eslint插件

@@ -6,10 +6,12 @@ const { leftMenuList, menuList: menuAll } = storeToRefs(useUserStore())
 const { mixMenuActive } = storeToRefs(useCommonStore())
 
 const router = useRouter()
-const { isNeedChildren = true } = defineProps<{
+const { isNeedChildren } = withDefaults(defineProps<{
   menuList: IMenuList,
   isNeedChildren?: boolean
-}>()
+}>(), {
+  isNeedChildren: true
+})
 
 // 路由跳转
 function handleMenuItemClick(item: IMenuItem) {

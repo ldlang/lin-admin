@@ -6,11 +6,14 @@ const asideMenuItem = defineAsyncComponent(()=> import('./aside-menu-item.vue'))
 const { menuList } = storeToRefs(useUserStore())
 const { isCollapse, theme } = storeToRefs(useCommonStore())
 
-const { isNeedChildren = true, mode = 'vertical' } = defineProps<{
+const { isNeedChildren } = withDefaults(defineProps<{
    mode?: 'vertical' | 'horizontal',
    isNeedChildren?: boolean,
    activeMenu?: string
-}>()
+  }>(), {
+  mode: 'vertical',
+  isNeedChildren: true
+})
 
 const menuAll = ref<IMenuList>([])
 
